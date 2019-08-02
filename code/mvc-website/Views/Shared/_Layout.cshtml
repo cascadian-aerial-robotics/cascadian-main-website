@@ -39,12 +39,22 @@
     <link rel="stylesheet" href="css/libs.css">
     <!--Main css-->
     <link rel="stylesheet" href="css/main.css">
+
+
 </head>
 <body class="dark-load">
+    @await Component.InvokeAsync("Header")
+
     @RenderBody()
 
     @await Component.InvokeAsync("Footer")
 
+
+
+    <!--Libs-->
+    <script src="js/libs.js"></script>
+    <!--Use scripts-->
+    <script src="js/common.js"></script>
 
 </body>
 
