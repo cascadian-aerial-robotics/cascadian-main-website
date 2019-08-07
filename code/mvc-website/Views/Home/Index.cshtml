@@ -1,8 +1,17 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@await Component.InvokeAsync("Jumbotron")
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@await Component.InvokeAsync("WhyHowWhatStrip")
+
+@await Component.InvokeAsync("WhoAreWe")
+
+@await Component.InvokeAsync("Services")
+
+@await Component.InvokeAsync("Portfolio")
+
+@await Component.InvokeAsync("Industries")
+
+@await Component.InvokeAsync("WantToStartProject")
+
+@await Component.InvokeAsync("WhyChooseUs")
+
+@await Component.InvokeAsync("CitiesServedStrip")
