@@ -1,9 +1,3 @@
-/*
-   Theme Name: Kanter
-   Author: Brainiak
-   Description: Kanter - Creative Responsive Minimalistic HTML Template
-   Version: 1.0.0
-*/
 
 "use strict";
 
