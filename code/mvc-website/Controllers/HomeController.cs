@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
 using Microsoft.AspNetCore.Mvc;
 using mvc_website.Models;
+using System.Diagnostics;
 
-namespace mvc_website.Controllers
+namespace CascadianAerialRobotics.Website.Controllers
 {
     public class HomeController : Controller
     {
