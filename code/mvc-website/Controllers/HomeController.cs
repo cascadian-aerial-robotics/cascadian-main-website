@@ -12,9 +12,16 @@ namespace CascadianAerialRobotics.Website.Controllers
             return View();
         }
 
+        [Route("Privacy")]
         public IActionResult Privacy()
         {
-            return View();
+            return View("Privacy");
+        }
+
+        [Route("Bookings")]
+        public IActionResult Bookings()
+        {
+            return View("Bookings");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
