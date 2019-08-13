@@ -21,6 +21,12 @@
 
 
   <ItemGroup>
+    <ProjectReference Include="..\..\submodules\grump\src\grump.azure\grump.azure.csproj" />
+    <ProjectReference Include="..\..\submodules\grump\src\grump.core\grump.core.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
     <Content Update="wwwroot\404.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

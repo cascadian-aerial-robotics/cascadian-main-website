@@ -1,9 +1,8 @@
 ﻿
 using System.IO;
-using System.Linq;
+using Grump.Core;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Hosting.Server.Features;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
@@ -33,6 +32,10 @@ namespace mvc_website
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+
+            // Custom services
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>dependencyprofile_production</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\submodules\grump\src\grump.azure\grump.azure.csproj" />
+    <ProjectReference Include="..\..\submodules\grump\src\grump.core\grump.core.csproj" />
+  </ItemGroup>
+
+</Project>
