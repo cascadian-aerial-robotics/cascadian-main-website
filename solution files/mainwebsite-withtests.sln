@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "grump.azure", "..\submodule
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dependencyprofile-production", "..\code\dependencyprofile-production\dependencyprofile-production.csproj", "{9CFC8356-19A7-42D1-82F7-706B85CEBE98}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "grump.abstractions", "..\submodules\grump\src\grump.abstractions\grump.abstractions.csproj", "{84F7BCE1-EA06-451D-90E6-23C4B085208B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{9CFC8356-19A7-42D1-82F7-706B85CEBE98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CFC8356-19A7-42D1-82F7-706B85CEBE98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CFC8356-19A7-42D1-82F7-706B85CEBE98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84F7BCE1-EA06-451D-90E6-23C4B085208B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84F7BCE1-EA06-451D-90E6-23C4B085208B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84F7BCE1-EA06-451D-90E6-23C4B085208B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84F7BCE1-EA06-451D-90E6-23C4B085208B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

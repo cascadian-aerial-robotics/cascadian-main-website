@@ -1,7 +1,7 @@
-﻿using Grump.Azure;
-using Grump.Core;
+﻿using Grump.Abstractions;
+using Grump.Azure;
+
 using Microsoft.Extensions.DependencyInjection;
-using System;
 
 namespace CascadianAerialRobotics.Website.ProductionDependencyProfile
 {
@@ -9,7 +9,7 @@ namespace CascadianAerialRobotics.Website.ProductionDependencyProfile
     {
         public void BuildDependencies(IServiceCollection services)
         {
-            services.AddScoped<ISecretsProvider, ManagedIdentityKeyVaultSecretsProvider>();
+            
         }
     }
 }
