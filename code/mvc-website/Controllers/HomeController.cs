@@ -23,6 +23,12 @@ namespace CascadianAerialRobotics.Website.Controllers
             return View("Privacy");
         }
 
+        [Route("Newsletter")]
+        public IActionResult Newsletter()
+        {
+            return View("Newsletter");
+        }
+
         [Route("Bookings")]
         public IActionResult Bookings()
         {
