@@ -15,11 +15,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "grump.core", "..\submodules
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "grump.testhelpers", "..\submodules\grump\src\grump.testhelpers\grump.testhelpers.csproj", "{730EF1E3-6391-4124-BA69-9BE3323C2273}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "grump.azure", "..\submodules\grump\src\grump.azure\grump.azure.csproj", "{8E093358-6DA6-4DE4-A8A6-314671E23F11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "grump.azure", "..\submodules\grump\src\grump.azure\grump.azure.csproj", "{8E093358-6DA6-4DE4-A8A6-314671E23F11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dependencyprofile-production", "..\code\dependencyprofile-production\dependencyprofile-production.csproj", "{9CFC8356-19A7-42D1-82F7-706B85CEBE98}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dependencyprofile-production", "..\code\dependencyprofile-production\dependencyprofile-production.csproj", "{9CFC8356-19A7-42D1-82F7-706B85CEBE98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "grump.abstractions", "..\submodules\grump\src\grump.abstractions\grump.abstractions.csproj", "{84F7BCE1-EA06-451D-90E6-23C4B085208B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "grump.abstractions", "..\submodules\grump\src\grump.abstractions\grump.abstractions.csproj", "{84F7BCE1-EA06-451D-90E6-23C4B085208B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "submodules", "submodules", "{3F19D38B-0679-42A4-A3C7-29F7E8173DD0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "grump", "grump", "{A2992F44-18BF-431A-82CF-571CB92B87FB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dependencyprofiles", "dependencyprofiles", "{3C0C1DAE-432D-4ABC-85A4-9D811823608E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "grump.semantics", "..\submodules\grump\src\grump.semantics\grump.semantics.csproj", "{0FFF39EC-CF5A-438B-82D3-28A540CDDE93}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,12 +67,23 @@ Global
 		{84F7BCE1-EA06-451D-90E6-23C4B085208B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84F7BCE1-EA06-451D-90E6-23C4B085208B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84F7BCE1-EA06-451D-90E6-23C4B085208B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FFF39EC-CF5A-438B-82D3-28A540CDDE93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FFF39EC-CF5A-438B-82D3-28A540CDDE93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FFF39EC-CF5A-438B-82D3-28A540CDDE93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FFF39EC-CF5A-438B-82D3-28A540CDDE93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{80F99CE0-0FC5-4523-A759-8D925EA2B409} = {231C8E6F-E0CF-4457-83CF-00BBFDC24930}
+		{90521894-0E3C-45DD-B1C0-F28093552BA2} = {A2992F44-18BF-431A-82CF-571CB92B87FB}
+		{730EF1E3-6391-4124-BA69-9BE3323C2273} = {A2992F44-18BF-431A-82CF-571CB92B87FB}
+		{8E093358-6DA6-4DE4-A8A6-314671E23F11} = {A2992F44-18BF-431A-82CF-571CB92B87FB}
+		{9CFC8356-19A7-42D1-82F7-706B85CEBE98} = {3C0C1DAE-432D-4ABC-85A4-9D811823608E}
+		{84F7BCE1-EA06-451D-90E6-23C4B085208B} = {A2992F44-18BF-431A-82CF-571CB92B87FB}
+		{A2992F44-18BF-431A-82CF-571CB92B87FB} = {3F19D38B-0679-42A4-A3C7-29F7E8173DD0}
+		{0FFF39EC-CF5A-438B-82D3-28A540CDDE93} = {A2992F44-18BF-431A-82CF-571CB92B87FB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C2CF4EB5-89F5-498D-9F1E-C2DEE47994CF}

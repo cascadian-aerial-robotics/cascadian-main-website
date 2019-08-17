@@ -1,19 +1,24 @@
 ﻿
+using Grump.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 using mvc_website.Models;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace CascadianAerialRobotics.Website.Controllers
 {
     public class HomeController : Controller
     {
-        public HomeController()
-        {
+        public ISecretsProvider SecretsProvider { get; private set; }
 
+        public HomeController(ISecretsProvider secretsProvider)
+        {
+            SecretsProvider = secretsProvider;
         }
 
         public IActionResult Index()
         {
+            var secret = SecretsProvider.GetSecretAsync("S").Result;
             return View();
         }
 

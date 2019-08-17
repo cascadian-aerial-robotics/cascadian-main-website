@@ -24,6 +24,7 @@
     <ProjectReference Include="..\..\submodules\grump\src\grump.abstractions\grump.abstractions.csproj" />
     <ProjectReference Include="..\..\submodules\grump\src\grump.azure\grump.azure.csproj" />
     <ProjectReference Include="..\..\submodules\grump\src\grump.core\grump.core.csproj" />
+    <ProjectReference Include="..\dependencyprofile-production\dependencyprofile-production.csproj" />
   </ItemGroup>
 
 
