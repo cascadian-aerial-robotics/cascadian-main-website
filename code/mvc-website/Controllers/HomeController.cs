@@ -18,7 +18,6 @@ namespace CascadianAerialRobotics.Website.Controllers
 
         public IActionResult Index()
         {
-            var secret = SecretsProvider.GetSecretAsync("S").Result;
             return View();
         }
 
