@@ -1,52 +1,84 @@
-﻿<section id="contact" data-image="img/bg3.jpg" class="section-contact-with-us bg-dark-section background-image">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-push-2">
-                <div class="heading-title small-heading center">
-                    <h2>Get in touch <span>with us</span></h2>
-                    <p>Don't let doubts make you leave a big opportunity on the table. We are here to help you. Reach out. Or leave your information. Subscribe or follow. Greatness awaits. </p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="contact-wrap">
-                    <p class="phone"><a href="tel:+12096431193"><i aria-hidden="true" class="fa fa-phone"></i>+1 (209) 643-1193</a></p>
-                    <p class="street"> <i aria-hidden="true" class="fa fa-building"></i>906 W 2nd Avenue <br /> Ste 100 <br />Spokane, WA, 99201</p>
-                    <a href="mailto:contact@cascadianaerialrobotics.com" class="email">
-                        <i aria-hidden="true" class="fa fa-envelope-o"></i>contact&#64;cascadianaerialrobotics.com
-                    </a>
+﻿
 
-                    <!--Start social links-->
-                    <ul class="social-links">
-                        <li><a href="https://m.me/cascadianaerialrobotics"><i class="fa fa-facebook-square"></i></a></li>
-                        <li><a href="https://cascadian-aerial.slack.com/join/shared_invite/enQtNzAzNDA5MDY3NzE1LTBjNmZhYTAxNGU5NDhlNzE0NDgxZWVlYjZjNmFhZWEzYjRlMzdhMDJkMTg5ZmJhMDk3ZjJkZjIyNGNmNmEyNzY" target="_blank"><i class="fa fa-slack"></i></a></li>
-                        <li><a href="sip:adrian@cascadianaerialrobotics.onmicrosoft.com?call"><i class="fa fa-skype"></i></a></li>
-                    </ul>
-                    <!--End social links-->
+    <section id="contact" data-image="img/bg3.jpg" class="section-contact-with-us bg-dark-section background-image">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-push-2">
+                    <div class="heading-title small-heading center">
+                        <h2>Get in touch <span>with us</span></h2>
+                        <p>Don't let doubts make you leave a big opportunity on the table. We are here to help you. Reach out. Or leave your information. Subscribe or follow. Greatness awaits. </p>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="contact-form">
-                    <form class="contact-form-sub contact-form-bg">
-                        <!-- Input name-->
-                        <div class="col-md-6">
-                            <input type="text" required="" name="Name" placeholder=" Your name" class="form-control">
-                        </div>
-                        <!-- Input email-->
-                        <div class="col-md-6">
-                            <input type="email" required="" name="Email" placeholder="Your email" class="form-control">
-                        </div>
-                        <!-- textarea-->
-                        <div class="col-md-12">
-                            <textarea rows="9" required="" name="Message" placeholder="Your message" class="form-control"></textarea>
-                            <p class="success-msg hidden notify">Your message has been send</p>
-                            <p class="error-msg hidden notify">Error sending message</p>
-                            <input type="submit" value="Send" class="btn btn-blue btn-form">
-                        </div>
-                    </form>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="contact-wrap">
+                        <p class="phone"><a href="tel:+12096431193"><i aria-hidden="true" class="fa fa-phone"></i>+1 (209) 643-1193</a></p>
+                        <p class="street"> <i aria-hidden="true" class="fa fa-building"></i>906 W 2nd Avenue <br /> Ste 100 <br />Spokane, WA, 99201</p>
+                        <a href="mailto:contact@cascadianaerialrobotics.com" class="email">
+                            <i aria-hidden="true" class="fa fa-envelope-o"></i>contact&#64;cascadianaerialrobotics.com
+                        </a>
+
+                        <!--Start social links-->
+                        <ul class="social-links">
+                            <li><a href="https://m.me/cascadianaerialrobotics"><i class="fa fa-facebook-square"></i></a></li>
+                            <li><a href="https://cascadian-aerial.slack.com/join/shared_invite/enQtNzAzNDA5MDY3NzE1LTBjNmZhYTAxNGU5NDhlNzE0NDgxZWVlYjZjNmFhZWEzYjRlMzdhMDJkMTg5ZmJhMDk3ZjJkZjIyNGNmNmEyNzY" target="_blank"><i class="fa fa-slack"></i></a></li>
+                            <li><a href="sip:adrian@cascadianaerialrobotics.onmicrosoft.com?call"><i class="fa fa-skype"></i></a></li>
+                        </ul>
+                        <!--End social links-->
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="contact-form">
+                        <form class="contact-form-sub contact-form-bg" id="send-message" action="/api/message">
+                            <!-- Input name-->
+                            <div class="col-md-6">
+                                <input type="text" required="" id="contact-name-txt" name="Name" placeholder=" Your name" class="form-control">
+                            </div>
+                            <!-- Input email-->
+                            <div class="col-md-6">
+                                <input type="email" required=""  id="contact-email-txt" name="Email" placeholder="Your email" class="form-control">
+                            </div>
+                            <!-- textarea-->
+                            <div class="col-md-12">
+                                <textarea rows="9" required="" id="contact-message-txt" name="Message" placeholder="Your message" class="form-control"></textarea>
+                                <p class="success-msg hidden notify"  id="successmessage">Your message has been sent! Thanks! We will reply as soon as we can.</p>
+                                <p class="error-msg hidden notify" id="errormessage" style="background-color:darkred">Error your sending message :( we will take a look at what is happening.</p>
+                                <input type="submit" value="Send" class="btn btn-blue btn-form">
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+        @*<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script>
+            // Attach a submit handler to the form
+            $( "#send-message" ).submit(function( event ) {
+
+              // Stop form from submitting normally
+              event.preventDefault();
+
+              // Get some values from elements on the page:
+              var $form = $( this ),
+                senderName = $form.find("input[name='Name']").val(),
+                senderEmail = $form.find("input[name='Email']").val(),
+                senderMessage = $form.find( "input[name='Message']" ).val(),
+                url = $form.attr( "action" );
+
+              // Send the data using post
+              var posting = $.post( url, { Name: senderName, email: senderEmail, message: senderMessage } );
+
+              // Put the results in a div
+              posting.done(function( data ) {
+                //var content = $( data ).find( "#content" );
+                //$( "#result" ).empty().append( content );
+                  $('#successmessage').css("visibility: visible;")
+              });
+
+              posting.fail(function() {
+                  $('#errormessage').css("visibility: visible;")
+              })
+            });
+        </script>*@
+    </section>

@@ -930,19 +930,43 @@
 	/*-------------------------------------
 		E-mail Ajax Send
 	-------------------------------------*/
-	$('.contact-form-sub:nth-child(1n)').on('submit',function() {
-		var th = $(this);
-		$.ajax({
-			type: "POST",
-			url: "mail.php", //Change
-			data: th.serialize()
-		}).done(function() {
-			th.trigger("reset");
-			th.find('.success-msg').slideToggle('slow');
-			setTimeout(function() {
-				// Done Functions
-				th.find('.success-msg').slideToggle('hide');
-			}, 3000);
+    $("#send-message").submit(function (event) {
+
+        // Stop form from submitting normally
+        event.preventDefault();
+
+        // Get some values from elements on the page:
+        var $form = $(this),
+            senderName = $form.find("input[id='contact-name-txt']").val(),
+            senderEmail = $form.find("input[id='contact-email-txt']").val(),
+            senderMessage = $form.find("textarea[id='contact-message-txt']").val(),
+            url = $form.attr("action");
+
+        
+        $.ajax({
+            type: "POST",
+            url: url, //Change
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify({ name: senderName, email: senderEmail, message: senderMessage })
+        }).always(function (jqXHR, textStatus, errorThrown) {
+
+            if (jqXHR.status === 200) {
+                $form.trigger("reset");
+                $form.find('.success-msg').slideToggle('slow');
+                setTimeout(function () {
+                    // Done Functions
+                    $form.find('.success-msg').slideToggle('hide');
+                }, 6000);
+            }
+            else {
+                $form.find('.error-msg').slideToggle('slow');
+                setTimeout(function () {
+                    // Done Functions
+                    $form.find('.error-msg').slideToggle('hide');
+                }, 6000);
+            }
+            
 		});
 		return false;
 	});
