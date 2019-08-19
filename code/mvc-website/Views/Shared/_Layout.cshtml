@@ -40,6 +40,11 @@
     <!--Main css-->
     <link rel="stylesheet" href="~/css/main.css">
 
+    <environment include="Development,PreProd,Propduction">
+        @Html.Raw(JavaScriptSnippet.FullScript)
+    </environment>
+
+        
 
 </head>
 <body class="dark-load">

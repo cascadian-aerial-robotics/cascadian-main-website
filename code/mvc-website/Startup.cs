@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.ApplicationInsights;
 
 namespace mvc_website
 {
@@ -30,6 +32,9 @@ namespace mvc_website
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddApplicationInsightsTelemetry();
+            services.AddSingleton<ILogger>(new ApplicationInsightsLogger("cascadian-mainpage", new Microsoft.ApplicationInsights.TelemetryClient(), new ApplicationInsightsLoggerOptions() { IncludeScopes = false }));
+
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
@@ -41,7 +46,7 @@ namespace mvc_website
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            if (env.IsDevelopment())
+            if (env.EnvironmentName.Contains("development", System.StringComparison.InvariantCultureIgnoreCase))
             {
                 app.UseDeveloperExceptionPage();
 
@@ -54,6 +59,8 @@ namespace mvc_website
                 app.UseHsts();
 
             }
+
+
 
             app.UseStatusCodePages(async context =>
             {

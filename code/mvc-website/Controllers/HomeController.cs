@@ -1,6 +1,7 @@
 ﻿
 using Grump.Abstractions;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using mvc_website.Models;
 using System.Diagnostics;
 using System.Threading.Tasks;
@@ -11,13 +12,17 @@ namespace CascadianAerialRobotics.Website.Controllers
     {
         public ISecretsProvider SecretsProvider { get; private set; }
 
-        public HomeController(ISecretsProvider secretsProvider)
+        public ILogger Logger { get; set; }
+
+        public HomeController(ILogger logger)
         {
-            SecretsProvider = secretsProvider;
+            Logger = logger;
         }
 
         public IActionResult Index()
         {
+            Logger.LogTrace("Page started, yay!");
+            
             return View();
         }
 
