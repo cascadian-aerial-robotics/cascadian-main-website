@@ -7,7 +7,7 @@ namespace Cascadian.Entities
     {
         public Guid? PersonInternalId { get; set; }
 
-        public string PersonId { get; set; }
+        public string PersonUserIdentifier { get; set; }
 
         public string FullName { get; set; }
 

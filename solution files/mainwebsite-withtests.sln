@@ -9,15 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mvc-website.tests.unit", ".
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{231C8E6F-E0CF-4457-83CF-00BBFDC24930}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "razor-templates", "..\code\razor-templates\razor-templates.csproj", "{CCE27DCA-A2F6-4331-9BFF-C91DBA30D509}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "grump.core", "..\submodules\grump\src\grump.core\grump.core.csproj", "{90521894-0E3C-45DD-B1C0-F28093552BA2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "grump.testhelpers", "..\submodules\grump\src\grump.testhelpers\grump.testhelpers.csproj", "{730EF1E3-6391-4124-BA69-9BE3323C2273}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "grump.azure", "..\submodules\grump\src\grump.azure\grump.azure.csproj", "{8E093358-6DA6-4DE4-A8A6-314671E23F11}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dependencyprofile-production", "..\code\dependencyprofile-production\dependencyprofile-production.csproj", "{9CFC8356-19A7-42D1-82F7-706B85CEBE98}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "grump.abstractions", "..\submodules\grump\src\grump.abstractions\grump.abstractions.csproj", "{84F7BCE1-EA06-451D-90E6-23C4B085208B}"
 EndProject
@@ -29,15 +25,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dependencyprofiles", "depen
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "grump.semantics", "..\submodules\grump\src\grump.semantics\grump.semantics.csproj", "{0FFF39EC-CF5A-438B-82D3-28A540CDDE93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cascadian-abstractions", "..\code\cascadian-abstractions\cascadian-abstractions.csproj", "{081C67B3-D115-4704-A54A-7521296BEC15}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cascadian-abstractions", "..\code\cascadian-abstractions\cascadian-abstractions.csproj", "{081C67B3-D115-4704-A54A-7521296BEC15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cascadian-entities", "..\code\cascadian-entities\cascadian-entities.csproj", "{5C6F52CE-CDEB-4E32-BE4B-BDE5106B3C53}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cascadian-entities", "..\code\cascadian-entities\cascadian-entities.csproj", "{5C6F52CE-CDEB-4E32-BE4B-BDE5106B3C53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cascadian-website-abstractions", "..\code\cascadian-website-abstractions\cascadian-website-abstractions.csproj", "{99BB1745-CD8A-4667-81F2-D9906C064940}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cascadian-website-abstractions", "..\code\cascadian-website-abstractions\cascadian-website-abstractions.csproj", "{99BB1745-CD8A-4667-81F2-D9906C064940}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cascadian-sqlrepositories", "..\code\cascadian-sqlrepositories\cascadian-sqlrepositories.csproj", "{3E598819-6443-4021-A98C-AF2445C13186}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cascadian-sqlrepositories", "..\code\cascadian-sqlrepositories\cascadian-sqlrepositories.csproj", "{3E598819-6443-4021-A98C-AF2445C13186}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cascadian-website-services", "..\code\cascadian-website-services\cascadian-website-services.csproj", "{2B4B0776-15FB-4B50-B74D-12F339315E6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cascadian-website-services", "..\code\cascadian-website-services\cascadian-website-services.csproj", "{2B4B0776-15FB-4B50-B74D-12F339315E6F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "businessservices", "businessservices", "{6005020F-ADDF-4EA5-83F0-471DC77334DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dependencyprofile-developmentlocal", "..\code\dependencyprofile-developmentlocal\dependencyprofile-developmentlocal.csproj", "{44F8B4C9-2AB1-4C70-AD0C-917095FC410A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,10 +53,6 @@ Global
 		{80F99CE0-0FC5-4523-A759-8D925EA2B409}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80F99CE0-0FC5-4523-A759-8D925EA2B409}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80F99CE0-0FC5-4523-A759-8D925EA2B409}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CCE27DCA-A2F6-4331-9BFF-C91DBA30D509}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CCE27DCA-A2F6-4331-9BFF-C91DBA30D509}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CCE27DCA-A2F6-4331-9BFF-C91DBA30D509}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CCE27DCA-A2F6-4331-9BFF-C91DBA30D509}.Release|Any CPU.Build.0 = Release|Any CPU
 		{90521894-0E3C-45DD-B1C0-F28093552BA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{90521894-0E3C-45DD-B1C0-F28093552BA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90521894-0E3C-45DD-B1C0-F28093552BA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -69,10 +65,6 @@ Global
 		{8E093358-6DA6-4DE4-A8A6-314671E23F11}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E093358-6DA6-4DE4-A8A6-314671E23F11}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E093358-6DA6-4DE4-A8A6-314671E23F11}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9CFC8356-19A7-42D1-82F7-706B85CEBE98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9CFC8356-19A7-42D1-82F7-706B85CEBE98}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9CFC8356-19A7-42D1-82F7-706B85CEBE98}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9CFC8356-19A7-42D1-82F7-706B85CEBE98}.Release|Any CPU.Build.0 = Release|Any CPU
 		{84F7BCE1-EA06-451D-90E6-23C4B085208B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{84F7BCE1-EA06-451D-90E6-23C4B085208B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84F7BCE1-EA06-451D-90E6-23C4B085208B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -101,6 +93,10 @@ Global
 		{2B4B0776-15FB-4B50-B74D-12F339315E6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B4B0776-15FB-4B50-B74D-12F339315E6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B4B0776-15FB-4B50-B74D-12F339315E6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44F8B4C9-2AB1-4C70-AD0C-917095FC410A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44F8B4C9-2AB1-4C70-AD0C-917095FC410A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44F8B4C9-2AB1-4C70-AD0C-917095FC410A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44F8B4C9-2AB1-4C70-AD0C-917095FC410A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -110,10 +106,15 @@ Global
 		{90521894-0E3C-45DD-B1C0-F28093552BA2} = {A2992F44-18BF-431A-82CF-571CB92B87FB}
 		{730EF1E3-6391-4124-BA69-9BE3323C2273} = {A2992F44-18BF-431A-82CF-571CB92B87FB}
 		{8E093358-6DA6-4DE4-A8A6-314671E23F11} = {A2992F44-18BF-431A-82CF-571CB92B87FB}
-		{9CFC8356-19A7-42D1-82F7-706B85CEBE98} = {3C0C1DAE-432D-4ABC-85A4-9D811823608E}
 		{84F7BCE1-EA06-451D-90E6-23C4B085208B} = {A2992F44-18BF-431A-82CF-571CB92B87FB}
 		{A2992F44-18BF-431A-82CF-571CB92B87FB} = {3F19D38B-0679-42A4-A3C7-29F7E8173DD0}
 		{0FFF39EC-CF5A-438B-82D3-28A540CDDE93} = {A2992F44-18BF-431A-82CF-571CB92B87FB}
+		{081C67B3-D115-4704-A54A-7521296BEC15} = {6005020F-ADDF-4EA5-83F0-471DC77334DB}
+		{5C6F52CE-CDEB-4E32-BE4B-BDE5106B3C53} = {6005020F-ADDF-4EA5-83F0-471DC77334DB}
+		{99BB1745-CD8A-4667-81F2-D9906C064940} = {6005020F-ADDF-4EA5-83F0-471DC77334DB}
+		{3E598819-6443-4021-A98C-AF2445C13186} = {6005020F-ADDF-4EA5-83F0-471DC77334DB}
+		{2B4B0776-15FB-4B50-B74D-12F339315E6F} = {6005020F-ADDF-4EA5-83F0-471DC77334DB}
+		{44F8B4C9-2AB1-4C70-AD0C-917095FC410A} = {3C0C1DAE-432D-4ABC-85A4-9D811823608E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C2CF4EB5-89F5-498D-9F1E-C2DEE47994CF}
