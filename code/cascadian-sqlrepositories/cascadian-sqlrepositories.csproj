@@ -11,6 +11,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\submodules\grump\src\grump.abstractions\grump.abstractions.csproj" />
+    <ProjectReference Include="..\..\submodules\grump\src\grump.data\grump.data.csproj" />
+    <ProjectReference Include="..\..\submodules\grump\src\grump.sql\grump.sql.csproj" />
     <ProjectReference Include="..\cascadian-abstractions\cascadian-abstractions.csproj" />
   </ItemGroup>
 

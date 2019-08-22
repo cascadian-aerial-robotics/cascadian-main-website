@@ -16,11 +16,11 @@ namespace Cascadian.Website.Services
         public IContactInfoRepository ContactInfoRepository { get; set; }
 
         public IContactMessageRepository ContactMessageRepository { get; set; }
-        public ContactMessageLogger(IPersonRepository personRepository)//, IContactInfoRepository contactInfoRepository, IContactMessageRepository contactMessageRepository)
+        public ContactMessageLogger(IPersonRepository personRepository, IContactInfoRepository contactInfoRepository, IContactMessageRepository contactMessageRepository)
         {
             PersonRepository = personRepository;
-            //ContactInfoRepository = contactInfoRepository;
-            //ContactMessageRepository = contactMessageRepository;
+            ContactInfoRepository = contactInfoRepository;
+            ContactMessageRepository = contactMessageRepository;
         }
         public async Task SaveMessage(string contactName, string contactEmail, string message, string contactOrigin, IEnumerable<KeyValuePair<string, string>> additionalFields = null)
         {
@@ -35,14 +35,13 @@ namespace Cascadian.Website.Services
                 person = new Person
                 {
                     FullName = contactName,
-                    PersonUserIdentifier = contactEmail
+                    PersonUserIdentifier = contactEmail,
                 };
 
-                await PersonRepository.Add(person);
+                contactInfo = new ContactInfo() { Type = new ContactType("email"), Value = contactEmail };
+                person.ContactInfo = new[] { contactInfo };
 
-                // Create the contact entry, and add the contact info.
-                contactInfo = new ContactInfo() { Person = person, Type = new ContactType("email"), Value = contactEmail };
-                await ContactInfoRepository.Add(contactInfo);
+                await PersonRepository.Add(person);
 
             }
             else

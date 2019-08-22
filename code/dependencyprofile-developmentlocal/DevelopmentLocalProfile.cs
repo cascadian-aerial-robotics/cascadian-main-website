@@ -23,6 +23,8 @@ namespace CascadianAerialRobotics.Website.DependencyProfiles.DevelopmentLocal
             services.AddSingleton<IKeyVaultClient, ManagedIdentityKeyVaultClient>();
             services.AddSingleton<ISecretsProvider, KeyVaultSecretsProvider>();
             services.AddTransient<IPersonRepository, SqlPersonRepository>();
+            services.AddTransient<IContactInfoRepository, SqlContactInfoRepository>();
+            services.AddTransient<IContactMessageRepository, SqlContactMessageRepository>();
             services.AddTransient<IContactMessageLogger, ContactMessageLogger>();
 
         }

@@ -21,8 +21,6 @@ namespace CascadianAerialRobotics.Website.Controllers
 
         public IActionResult Index()
         {
-            Logger.LogTrace("Page started, yay!");
-            
             return View();
         }
 

@@ -6,6 +6,8 @@ namespace Cascadian.Entities
 {
     public class ContactMessage
     {
+        public Guid? MessageId { get; set; }
+
         public Person Person { get; set; }
 
         public ContactInfo ContactInfo { get; set; }

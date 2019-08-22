@@ -19,8 +19,24 @@ namespace Cascadian.Entities
 
         public Guid? ChangeId { get; set; }
 
-        public IEnumerable<ContactInfo> ContactInfo { get; set; }
+        public IEnumerable<ContactInfo> ContactInfo
+        {
+            get
+            {
+                return _contactInfo;
+            }
+            set
+            {
+                _contactInfo = value;
 
+                // Ensures data integrity by assigning the parent Person
+                foreach (var contact in _contactInfo)
+                {
+                    contact.Person = this;
+                }
+            }
+        }
+        private IEnumerable<ContactInfo> _contactInfo;
 
     }
 }
