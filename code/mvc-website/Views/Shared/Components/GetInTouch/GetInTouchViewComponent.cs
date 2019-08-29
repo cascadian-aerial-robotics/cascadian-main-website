@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-namespace CascadianAerialRobotics.Website.Views.Shared.Components.WhyHowWhatStrip
+namespace CascadianAerialRobotics.Website.Views.Shared.Components
 {
-    public class WhyHowWhatStripViewComponent :  ViewComponent
+    public class GetInTouchViewComponent : ViewComponent
     {
         public Task<IViewComponentResult> InvokeAsync()
         {
