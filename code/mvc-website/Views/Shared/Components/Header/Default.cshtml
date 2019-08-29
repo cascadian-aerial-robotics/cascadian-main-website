@@ -1,14 +1,15 @@
 ﻿
 <header id="top-nav" class="top-nav page-header">
     <div class="container">
-        <a href="#" class="logo smooth-scroll"><img src="~/img/cascadian-logo.png" alt="logo" class="logo-white"><img src="~/img/cascadian-logo-dark.png" alt="logo" class="logo-dark"></a>
+        @*<a href="#" class="logo smooth-scroll"><img src="~/img/cascadian-logo.png" alt="logo" class="logo-white"><img src="~/img/cascadian-logo-dark.png" alt="logo" class="logo-dark"></a>*@
+        <a asp-action="index" asp-controller="home"  class="logo smooth-scroll"><img src="~/img/cascadian-logo.png" alt="logo" class="logo-white"><img src="~/img/cascadian-logo-dark.png" alt="logo" class="logo-dark"></a>
         <nav class="top-menu">
             <ul class="sf-menu">
                 <!--Menu default-->
                 <li>
                     <a href="/">Home</a>
                     <ul>
-                        <li><a href="#whoarewe">About us</a></li>
+                        <li><a asp-action="index" asp-controller="home" asp-fragment="whatwedo">What we do</a></li>
                         <li><a href="#">Contact</a></li>
                         <li><a href="#">FAQ</a></li>
                         <li><a href="#">Safety</a></li>
@@ -89,14 +90,14 @@
                             <a href="#">Home</a>
                             <ul class="sub-menu">
                                 <li><a href="index.html">Home - Default</a></li>
-                                
+
                             </ul>
                         </li>
                         <li class="menu-item-has-children">
                             <a href="#">Pages</a>
                             <ul class="sub-menu">
                                 <li><a href="contact.html">Contact Default</a></li>
-                                
+
                             </ul>
                         </li>
                     </ul>
