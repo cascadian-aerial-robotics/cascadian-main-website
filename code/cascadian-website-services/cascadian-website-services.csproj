@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <RootNamespace>Cascadian.Website.Services</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\cascadian-abstractions\cascadian-abstractions.csproj" />
+    <ProjectReference Include="..\cascadian-website-abstractions\cascadian-website-abstractions.csproj" />
+  </ItemGroup>
+
+</Project>

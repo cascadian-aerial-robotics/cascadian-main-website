@@ -9,6 +9,7 @@
 
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.7.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
@@ -17,6 +18,15 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\css\" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\submodules\grump\src\grump.abstractions\grump.abstractions.csproj" />
+    <ProjectReference Include="..\..\submodules\grump\src\grump.azure\grump.azure.csproj" />
+    <ProjectReference Include="..\..\submodules\grump\src\grump.core\grump.core.csproj" />
+    <ProjectReference Include="..\cascadian-website-abstractions\cascadian-website-abstractions.csproj" />
+    <ProjectReference Include="..\dependencyprofile-developmentlocal\dependencyprofile-developmentlocal.csproj" />
   </ItemGroup>
 
 </Project>
