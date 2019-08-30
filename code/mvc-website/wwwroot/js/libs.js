@@ -2170,7 +2170,7 @@ window.Modernizr = function (e, t, n) {
                         selector: o,
                         needsContext: o && re.expr.match.needsContext.test(o),
                         namespace: f.join(".")
-                    }, r), (p = l[h]) || (p = l[h] = [], p.delegateCount = 0, d.setup && !1 !== d.setup.call(e, i, f, s) || e.addEventListener && e.addEventListener(h, s)), d.add && (d.add.call(e, c), c.handler.guid || (c.handler.guid = n.guid)), o ? p.splice(p.delegateCount++, 0, c) : p.push(c), re.event.global[h] = !0)
+                    }, r), (p = l[h]) || (p = l[h] = [], p.delegateCount = 0, d.setup && !1 !== d.setup.call(e, i, f, s) || e.addEventListener && e.addEventListener(h, s, { passive: true })), d.add && (d.add.call(e, c), c.handler.guid || (c.handler.guid = n.guid)), o ? p.splice(p.delegateCount++, 0, c) : p.push(c), re.event.global[h] = !0)
             },
             remove: function (e, t, n, i, o) {
                 var r, s, a, l, u, c, d, p, h, f, g, m = Se.hasData(e) && Se.get(e);
