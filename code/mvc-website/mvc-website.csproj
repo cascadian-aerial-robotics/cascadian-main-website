@@ -29,11 +29,4 @@
     <ProjectReference Include="..\dependencyprofile-developmentlocal\dependencyprofile-developmentlocal.csproj" />
   </ItemGroup>
 
-
-  <ItemGroup>
-    <Content Update="wwwroot\404.html">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
 </Project>

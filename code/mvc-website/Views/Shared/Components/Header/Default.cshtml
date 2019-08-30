@@ -1,19 +1,24 @@
 ﻿
 <header id="top-nav" class="top-nav page-header">
     <div class="container">
-        <a href="#" class="logo smooth-scroll"><img src="~/img/cascadian-logo.png" alt="logo" class="logo-white"><img src="~/img/cascadian-logo-dark.png" alt="logo" class="logo-dark"></a>
+        @*<a href="#" class="logo smooth-scroll"><img src="~/img/cascadian-logo.png" alt="logo" class="logo-white"><img src="~/img/cascadian-logo-dark.png" alt="logo" class="logo-dark"></a>*@
+        <a asp-action="index" asp-controller="home"  class="logo smooth-scroll"><img src="~/img/cascadian-logo.png" alt="logo" class="logo-white"><img src="~/img/cascadian-logo-dark.png" alt="logo" class="logo-dark"></a>
         <nav class="top-menu">
             <ul class="sf-menu">
                 <!--Menu default-->
                 <li>
-                    <a href="/">Home</a>
+                <li>
+                    <a asp-action="index" asp-controller="home">Home</a>
                     <ul>
-                        <li><a href="#whoarewe">About us</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Safety</a></li>
-                        <li><a href="#">Privacy</a></li>
-                        <li><a href="#">Terms and conditions</a></li>
+                        <li><a asp-action="index" asp-controller="home" asp-fragment="whatwedo">What we do</a></li>
+                        <li><a asp-action="index" asp-controller="home" asp-fragment="ourguarantee">Our guarantee</a></li>
+                        <li><a asp-action="index" asp-controller="home" asp-fragment="portfolio">Some of our work</a></li>
+                        <li><a asp-action="index" asp-controller="home" asp-fragment="services">Our services</a></li>
+                        <li><a asp-action="index" asp-controller="home" asp-fragment="industries">Industries</a></li>
+                        <li><a asp-action="index" asp-controller="home" asp-fragment="bookanappointment">Book an appointment</a></li>
+                        <li><a asp-action="index" asp-controller="home" asp-fragment="whychooseus">Why choose us</a></li>
+                        <li><a asp-action="index" asp-controller="home" asp-fragment="getintouch">Get in touch</a></li>
+                        <li><a asp-action="index" asp-controller="home" asp-fragment="citiesserved">Cities we serve</a></li>
                     </ul>
                 </li>
                 <li>
@@ -73,8 +78,6 @@
                         </li>
                     </ul>
                 </li>
-                @*<li><a href="#skills" class="smooth-scroll">Skills</a></li>
-                <li> <a href="#contact" class="smooth-scroll">Contact</a></li>*@
             </ul>
 
             <!-- Start toggle menu--><a href="#" class="toggle-mnu"><span></span></a>
@@ -85,18 +88,14 @@
             <div class="inner-wrap">
                 <nav>
                     <ul class="nav_menu">
-                        <li class="menu-item-has-children current-menu-item">
-                            <a href="#">Home</a>
-                            <ul class="sub-menu">
-                                <li><a href="index.html">Home - Default</a></li>
-                                
-                            </ul>
+                        <li class="smooth-scroll">
+                            <a asp-action="index" asp-controller="home">Home</a>                 
                         </li>
                         <li class="menu-item-has-children">
                             <a href="#">Pages</a>
                             <ul class="sub-menu">
                                 <li><a href="contact.html">Contact Default</a></li>
-                                
+
                             </ul>
                         </li>
                     </ul>
@@ -107,7 +106,7 @@
     </div>
 </header>
 <!-- Start full screen top nav-->
-<div data-image="img/bg1.jpg" class="fullscreen-topnav rotate background-image">
+<div data-image="img/background-nikehq.jpg" class="fullscreen-topnav rotate background-image">
     <!-- Start container-->
     <div class="container-fluid height-half">
         <div class="row height-full no-padding-bottom">
