@@ -1,2 +1,5 @@
 # Ignore local Visual Studio configuration files
 .vs/
+
+# Sonar files
+.sonarqube

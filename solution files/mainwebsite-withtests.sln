@@ -39,9 +39,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "businessservices", "busines
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dependencyprofile-developmentlocal", "..\code\dependencyprofile-developmentlocal\dependencyprofile-developmentlocal.csproj", "{44F8B4C9-2AB1-4C70-AD0C-917095FC410A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "grump.sql", "..\submodules\grump\src\grump.sql\grump.sql.csproj", "{9844E60B-08B4-484C-86F1-7C55A84191DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "grump.sql", "..\submodules\grump\src\grump.sql\grump.sql.csproj", "{9844E60B-08B4-484C-86F1-7C55A84191DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "grump.data", "..\submodules\grump\src\grump.data\grump.data.csproj", "{15D721EE-9866-476A-94D1-885BDB72E4AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "grump.data", "..\submodules\grump\src\grump.data\grump.data.csproj", "{15D721EE-9866-476A-94D1-885BDB72E4AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
