@@ -1,4 +1,4 @@
-﻿'''
+﻿
 using System.IO;
 using CascadianAerialRobotics.Website.DependencyProfiles.DevelopmentLocal;
 using Microsoft.AspNetCore.Builder;
