@@ -18,15 +18,24 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-# - task: DotNetCoreCLI@2
-#   inputs:
-#     command: 'build'
-#     projects: '/solution files/mainwebsite-withtests.sln'
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'SonarCloud Code Analyzer'
+    organization: 'cascadian-aerial-robotics'
+    scannerMode: 'MSBuild'
+    projectKey: 'cascadian-aerial-robotics'
+    projectName: 'main-website'
 
 - task: PowerShell@2
   inputs:
     filePath: 'build/build.ps1'
     arguments: '$(Build.SourcesDirectory) $(Build.ArtifactStagingDirectory)'
+
+- task: SonarCloudAnalyze@1
+
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
 
 - task: PublishBuildArtifacts@1
   inputs:
