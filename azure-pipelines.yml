@@ -23,7 +23,7 @@ steps:
     SonarCloud: 'SonarCloud Code Analyzer'
     organization: 'cascadian-aerial-robotics'
     scannerMode: 'MSBuild'
-    projectKey: 'cascadian-aerial-robotics'
+    projectKey: 'main-website'
     projectName: 'main-website'
 
 - task: PowerShell@2
