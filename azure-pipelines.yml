@@ -7,7 +7,7 @@ trigger:
 - develop
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'ubuntu-latest'
 
 variables:
   buildConfiguration: 'Release'
@@ -20,7 +20,8 @@ steps:
 
 - task: PowerShell@2
   inputs:
-    filePath: 'build/build.ps1 $(Build.SourcesDirectory) $(Build.ArtifactStagingDirectory)'
+    filePath: 'build/build.ps1'
+    arguments: '$(Build.SourcesDirectory) $(Build.ArtifactStagingDirectory)'
 
 - task: PublishBuildArtifacts@1
   inputs:
