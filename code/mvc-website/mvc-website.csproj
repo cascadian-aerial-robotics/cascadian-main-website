@@ -31,6 +31,7 @@
     <ProjectReference Include="..\..\submodules\grump\src\grump.core\grump.core.csproj" />
     <ProjectReference Include="..\cascadian-website-abstractions\cascadian-website-abstractions.csproj" />
     <ProjectReference Include="..\dependencyprofile-developmentlocal\dependencyprofile-developmentlocal.csproj" />
+    <ProjectReference Include="..\dependencyprofile-production\dependencyprofile-production.csproj" />
   </ItemGroup>
 
 </Project>
