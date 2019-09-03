@@ -5,7 +5,7 @@
                 <div style="text-align:center">
                     <img src="/img/cascadian-logo.png" alt="logo" class="logo-white" style="height:76px;width:233px;">
                 </div>
-                <p>We are a creative agency with a passion for design & developing beautiful creations.</p>
+                @*<p>We are drone technology enthusiasts that strive to deliver not only perceived but measurable value, and we do it with the highest safety standards and compliance.</p>*@
                 <ul class="social-links">
                     <li><a href="https://www.linkedin.com/company/cascadian-aerial-robotics/" target="_blank" rel="noopener noreferrer" title="Cascadian Aerial Robotics LLC • LinkedIn company page"><i class="fa fa-linkedin"></i></a></li>
                     <li><a href="https://www.youtube.com/channel/UCkhKMfALY9Fb-frdYu4N3uw/" target="_blank" rel="noopener noreferrer" title="Cascadian Aerial Robotics LLC • Youtube channel"><i class="fa fa-youtube-play"></i></a></li>
@@ -23,7 +23,7 @@
                 </ul>
             </div>
             <div class="col-md-3">
-                <div class="links">
+                @*<div class="links">
                     <h5>Addtional links</h5>
                     <ul class="list">
                         <li><a href="#">More links</a></li>
@@ -32,14 +32,14 @@
                         <li><a href="#">More links</a></li>
                         <li><a href="#">More links</a></li>
                     </ul>
-                </div>
+                </div>*@
             </div>
             <div class="col-md-3">
                 <div class="links">
                     <h5>About</h5>
                     <ul class="list">
                         <li><a asp-action="index" asp-controller="home" asp-fragment="services">Our services</a></li>
-                        <li><a asp-action="faq" asp-controller="home">FAQs</a></li>
+                        @*<li><a asp-action="faq" asp-controller="home">FAQs</a></li>*@
                         <li><a asp-action="index" asp-controller="home" asp-fragment="getintouch">Contacting us</a></li>
                         <li><a asp-action="bookings" asp-controller="home">Bookings</a></li>
                         <li><a asp-action="privacy" asp-controller="home">Privacy</a></li>
@@ -64,15 +64,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <p>© 2019 All Rights Reserved. Cascadian Aerial Robotics LLC - Page by GrumpyDev</p>
+                    <p>© 2019 All Rights Reserved. Cascadian Aerial Robotics LLC - Page by <a href="https://github.com/grumpydev-net" target="_blank" rel="noopener noreferrer">GrumpyDev</a></p>
                     <ul class="footer-menu">
                         <li><a asp-action="index" asp-controller="home">Home</a></li>
-                        <li><a asp-action="index" asp-controller="contact">Contact us</a></li>
+                        <li><a asp-action="index" asp-controller="home" asp-fragment="services">Services</a></li>
+                        <li><a asp-action="index" asp-controller="home" asp-fragment="getintouch">Contact us</a></li>
                         <li><a asp-action="bookings" asp-controller="home">Bookings</a></li>
-                        <li><a href="#services" class="smooth-scroll">Services</a></li>
+                        @*<li><a href="#services" class="smooth-scroll">Services</a></li>
                         <li><a href="#portfolio" class="smooth-scroll">Our works</a></li>
                         <li><a href="#skills" class="smooth-scroll">Skills</a></li>
-                        <li> <a href="#contact" class="smooth-scroll">Contact</a></li>
+                        <li> <a href="#contact" class="smooth-scroll">Contact</a></li>*@
                     </ul>
                 </div>
             </div>

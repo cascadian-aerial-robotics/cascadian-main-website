@@ -1,4 +1,4 @@
-﻿<section id="portfolio" data-image="https://localhost:44381/img/background-cascadia.jpg" class="section-portfolio bg-white-section background-image">
+﻿<section id="portfolio" data-image="https://www.cascadianaerialrobotics.com/img/background-cascadia.jpg" class="section-portfolio bg-white-section background-image">
     @*==============================================HEADER==============================================*@
     <div class="container">
         <div class="row">
@@ -94,11 +94,11 @@
                 </div>
                 <!-- Next tile-->
                 <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 item-portfolio portfolio-item category-2">
-                    <a href="#image-modal-progressreport" target="_blank" rel="noopener noreferrer" title="" data-toggle="modal" data-target=".modal1" class="image-modal">
+                    <a href="#image-modal-progressreport" target="_blank" rel="noopener noreferrer" title="" data-toggle="modal" data-target=".modal1" class="image-modal-gallery">
                         <div class="item-wrap dh-container">
                             <img src="~/img/portfolio/portfolio-progressreport-preview.jpg" alt="img09">
                             <div class="content dh-overlay">
-                                <div class="tizer-circle"><i class="fa fa-youtube-play"></i></div>
+                                <div class="tizer-circle"><i class="fa fa-indent"></i></div>
                                 <div class="content-wrap">
                                     <div class="content-va">
                                         <h2>Construction site</h2>
@@ -132,7 +132,7 @@
                         <div class="item-wrap dh-container">
                             <img src="~/img/portfolio/portfolio-3drenderRtc-preview.jpg" alt="img09">
                             <div class="content dh-overlay">
-                                <div class="tizer-circle"><i class="fa fa-youtube-play"></i></div>
+                                <div class="tizer-circle"><i class="fa fa-picture-o"> </i></div>
                                 <div class="content-wrap">
                                     <div class="content-va">
                                         <h2>Company campus</h2>
@@ -144,7 +144,7 @@
                     </a>
                 </div>
                 <!-- Next tile-->
-                <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 item-portfolio portfolio-item category-1 category-2">
+                <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 item-portfolio portfolio-item category-1">
                     <a href="#image-modal-6" target="_blank" rel="noopener noreferrer" title="" data-toggle="modal" data-target=".modal1" class="image-modal">
                         <div class="item-wrap dh-container">
                             <img src="img/portfolio/portfolio-6preview.jpg" alt="img09">
@@ -428,7 +428,7 @@
                 @*Next project: Material aggregation company*@
                 <div id="image-modal-8" class="modal-box mfp-hide">
                     <div class="video-iframe">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/Z-6jEMlKTeo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/C29pdAETCRU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="modal-box-content">
                         <h2>3D meshes of <span>worksites</span></h2>
@@ -490,8 +490,24 @@
                 </div>
                 @*Next project: Construction progress report*@
                 <div id="image-modal-progressreport" class="modal-box mfp-hide">
-                    <div class="video-iframe">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/Z-6jEMlKTeo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="slider-wrap gallery-slide">
+                        <div class="slider-portfolio">
+                            <div class="slide"><img src="~/img/portfolio/portfolio-progressreport-1.jpg" alt="work" class="img-responsive"></div>
+                            <div class="slide"><img src="~/img/portfolio/portfolio-progressreport-2.jpg" alt="work" class="img-responsive"></div>
+                            <div class="slide"><img src="~/img/portfolio/portfolio-progressreport-3.jpg" alt="work" class="img-responsive"></div>
+                            <div class="slide"><img src="~/img/portfolio/portfolio-progressreport-4.jpg" alt="work" class="img-responsive"></div>
+                        </div>
+                        <!-- Strat Control carousel-->
+                        <div id="control-portfolio-slider" class="prev-next-block-rotate opacity-control">
+                            <div class="wrap-prev">
+                                <div class="prev"><i aria-hidden="true" class="fa fa-angle-left"></i></div>
+                            </div>
+                            <div class="wrap-next">
+                                <div class="next"><i aria-hidden="true" class="fa fa-angle-right"></i></div>
+                            </div>
+                        </div>
+                        <!--Control sliders-->
+                        <div id="dots-control-portfolio-slider" class="dots-control-carousel"></div>
                     </div>
                     <div class="modal-box-content">
                         <h2>Keep tabs on your <span>progress</span></h2>
@@ -508,15 +524,13 @@
                     <li><b>Live: </b><a href="#">View project<i aria-hidden="true" class="fa fa-external-link"></i></a></li>
                 </ul>
                 <hr>
-                <div class="buttons-section center"><a href="project-single-youtube.html" class="btn accent-br-btn large-btn">See project</a></div>*@
+                <div class="buttons-section center"><a href="project-single-gallery.html" class="btn accent-br-btn large-btn">See project</a></div>*@
                     </div>
                     <button title="Close (Esc)" type="button" class="mfp-close">×</button>
                 </div>
                 @*Next project: Company campus *@
                 <div id="image-modal-company-campus" class="modal-box mfp-hide">
-                    <div class="video-iframe">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/JYXgApUEUP0?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
+                    <img src="~/img/portfolio/portfolio-3drenderrtc.jpg" alt="work" class="img-responsive">
                     <div class="modal-box-content">
                         <h2>3D just for the <span>beauty</span></h2>
                         <p>
@@ -529,51 +543,49 @@
                     <li><b>Client: </b></li>
                     <li><b>Date: </b></li>
                     <li><b>Live: </b><a href="#">View project<i aria-hidden="true" class="fa fa-external-link"></i></a></li>
-                </ul>
-                <hr>
-                <div class="buttons-section center"><a href="project-single-youtube.html" class="btn accent-br-btn large-btn">See project</a></div>*@
+                </ul>*@
+                        @*<hr>
+                <div class="buttons-section center"><a href="project-single.html" class="btn accent-br-btn large-btn">See project</a></div>*@
                     </div>
-                    <button title="Close (Esc)" type="button" class="mfp-close">×</button>
-                </div>
-                @*Next project: Interior mapping*@
-                <div id="image-modal-interiormapping" class="modal-box mfp-hide">
-                    <div class="slider-wrap gallery-slide">
-                        <div class="slider-portfolio">
-                            <div class="slide"><img src="~/img/portfolio/portfolio-3drenderinterior-1.jpg" alt="work" class="img-responsive"></div>
-                            <div class="slide"><img src="~/img/portfolio/portfolio-3drenderinterior-2.jpg" alt="work" class="img-responsive"></div>
-                        </div>
-                        <!-- Strat Control carousel-->
-                        <div id="control-portfolio-slider" class="prev-next-block-rotate opacity-control">
-                            <div class="wrap-prev">
-                                <div class="prev"><i aria-hidden="true" class="fa fa-angle-left"></i></div>
+                    @*Next project: Interior mapping*@
+                    <div id="image-modal-interiormapping" class="modal-box mfp-hide">
+                        <div class="slider-wrap gallery-slide">
+                            <div class="slider-portfolio">
+                                <div class="slide"><img src="~/img/portfolio/portfolio-3drenderinterior-1.jpg" alt="work" class="img-responsive"></div>
+                                <div class="slide"><img src="~/img/portfolio/portfolio-3drenderinterior-2.jpg" alt="work" class="img-responsive"></div>
                             </div>
-                            <div class="wrap-next">
-                                <div class="next"><i aria-hidden="true" class="fa fa-angle-right"></i></div>
+                            <!-- Strat Control carousel-->
+                            <div id="control-portfolio-slider" class="prev-next-block-rotate opacity-control">
+                                <div class="wrap-prev">
+                                    <div class="prev"><i aria-hidden="true" class="fa fa-angle-left"></i></div>
+                                </div>
+                                <div class="wrap-next">
+                                    <div class="next"><i aria-hidden="true" class="fa fa-angle-right"></i></div>
+                                </div>
                             </div>
+                            <!--Control sliders-->
+                            <div id="dots-control-portfolio-slider" class="dots-control-carousel"></div>
                         </div>
-                        <!--Control sliders-->
-                        <div id="dots-control-portfolio-slider" class="dots-control-carousel"></div>
+                        <div class="modal-box-content">
+                            <h2>We hear you, <span>we act</span></h2>
+                            <p>
+                                We are a company hungry for innovation and the satisfaction of our clients. We are constantly either learning and onboarding new products, as well as creating new products, using the
+                                requests and inputs from our customers. One of the recurrent themes we hear is the ability to complement our external building modelling with interior modeling and point cloud capture.
+                                Stay tuned for updates on this and other products in development though our newsletter, blog and social media.
+                            </p>
+                            <hr>
+                            @*<h3>Detalis</h3>
+                    <ul class="list-project">
+                        <li><b>Client: </b></li>
+                        <li><b>Date: </b></li>
+                        <li><b>Live: </b><a href="#">View project<i aria-hidden="true" class="fa fa-external-link"></i></a></li>
+                    </ul>
+                    <hr>
+                    <div class="buttons-section center"><a href="project-single-gallery.html" class="btn accent-br-btn large-btn">See project</a></div>*@
+                        </div>
+                        <button title="Close (Esc)" type="button" class="mfp-close">×</button>
                     </div>
-                    <div class="modal-box-content">
-                        <h2>We hear you, <span>we act</span></h2>
-                        <p>
-                            We are a company hungry for innovation and the satisfaction of our clients. We are constantly either learning and onboarding new products, as well as creating new products, using the
-                            requests and inputs from our customers. One of the recurrent themes we hear is the ability to complement our external building modelling with interior modeling and point cloud capture.
-                            Stay tuned for updates on this and other products in development though our newsletter, blog and social media.
-                        </p>
-                        <hr>
-                        @*<h3>Detalis</h3>
-        <ul class="list-project">
-            <li><b>Client: </b></li>
-            <li><b>Date: </b></li>
-            <li><b>Live: </b><a href="#">View project<i aria-hidden="true" class="fa fa-external-link"></i></a></li>
-        </ul>
-        <hr>
-        <div class="buttons-section center"><a href="project-single-gallery.html" class="btn accent-br-btn large-btn">See project</a></div>*@
-                    </div>
-                    <button title="Close (Esc)" type="button" class="mfp-close">×</button>
                 </div>
             </div>
-        </div>
     </div>
 </section>
