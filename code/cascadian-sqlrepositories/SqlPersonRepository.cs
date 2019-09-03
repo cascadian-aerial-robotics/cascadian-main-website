@@ -106,7 +106,7 @@ namespace Cascadian.Repositories.Sql
                         var contactList = new List<ContactInfo>();
 
 
-                        for (int i = 0; i < contactsTable.Rows.Count - 1; i++)
+                        for (int i = 0; i < contactsTable.Rows.Count; i++)
                         {
                             var row = contactsTable.Rows[i];
 
@@ -114,7 +114,7 @@ namespace Cascadian.Repositories.Sql
                             {
                                 Person = person,
                                 ContactInfoInternalId = (Guid?)row["ContactInfoInternalId"],
-                                Type = new ContactType((int)row["ContactType"], (string)row["ContactTypeName"]),
+                                Type = new ContactType((short)row["ContactType"], (string)row["ContactTypeName"]),
                                 Value = (string)row["ContactTypeName"],
                                 ChangeId = (Guid?)row["ChangeId"],
                             };

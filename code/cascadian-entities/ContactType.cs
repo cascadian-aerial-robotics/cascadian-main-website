@@ -9,13 +9,13 @@ namespace Cascadian.Entities
             Name = name;
         }
 
-        public ContactType(int internalId, string name)
+        public ContactType(short internalId, string name)
         {
             InternalId = internalId;
             Name = name;
         }
 
-        public int? InternalId { get; set; }
+        public short? InternalId { get; set; }
 
         public string Name { get; set; }
     }
