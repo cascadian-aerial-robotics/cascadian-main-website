@@ -1,0 +1,1433 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "sites_cascadian_name": {
+      "defaultValue": "cascadian",
+      "type": "String"
+    },
+    "servers_cascadian_name": {
+      "defaultValue": "cascadian",
+      "type": "String"
+    },
+    "serverfarms_cascadian_name": {
+      "defaultValue": "cascadian",
+      "type": "String"
+    },
+    "components_cascadian_name": {
+      "defaultValue": "cascadian",
+      "type": "String"
+    },
+    "vaults_cascadian_aerial_name": {
+      "defaultValue": "cascadian-aerial",
+      "type": "String"
+    },
+    "servers_cascadian_westus2_backup_name": {
+      "defaultValue": "cascadian-westus2-backup",
+      "type": "String"
+    },
+    "storageAccounts_cascadianwebsitestorage_name": {
+      "defaultValue": "cascadianwebsitestorage",
+      "type": "String"
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "type": "microsoft.insights/components",
+      "apiVersion": "2015-05-01",
+      "name": "[parameters('components_cascadian_name')]",
+      "location": "westus2",
+      "tags": {
+        "Environment": "Production"
+      },
+      "kind": "web",
+      "properties": {
+        "Application_Type": "web",
+        "Request_Source": "IbizaWebAppExtensionCreate"
+      }
+    },
+    {
+      "type": "Microsoft.KeyVault/vaults",
+      "apiVersion": "2016-10-01",
+      "name": "[parameters('vaults_cascadian_aerial_name')]",
+      "location": "westus2",
+      "tags": {
+        "Environment": "Production"
+      },
+      "properties": {
+        "sku": {
+          "family": "A",
+          "name": "Standard"
+        },
+        "tenantId": "00000000-0000-0000-0000-000000000000",
+        "accessPolicies": [
+          {
+            "tenantId": "00000000-0000-0000-0000-000000000000",
+            "objectId": "00000000-0000-0000-0000-000000000000",
+            "permissions": {
+              "keys": [],
+              "secrets": [
+                "Get"
+              ],
+              "certificates": []
+            }
+          },
+          {
+            "tenantId": "00000000-0000-0000-0000-000000000000",
+            "objectId": "00000000-0000-0000-0000-000000000000",
+            "permissions": {
+              "keys": [
+                "Get",
+                "List",
+                "Update",
+                "Create",
+                "Import",
+                "Delete",
+                "Recover",
+                "Backup",
+                "Restore"
+              ],
+              "secrets": [
+                "Get",
+                "List",
+                "Set",
+                "Delete",
+                "Recover",
+                "Backup",
+                "Restore"
+              ],
+              "certificates": [
+                "Get",
+                "List",
+                "Update",
+                "Create",
+                "Import",
+                "Delete",
+                "Recover",
+                "Backup",
+                "Restore",
+                "ManageContacts",
+                "ManageIssuers",
+                "GetIssuers",
+                "ListIssuers",
+                "SetIssuers",
+                "DeleteIssuers"
+              ]
+            }
+          }
+        ],
+        "enabledForDeployment": false,
+        "enabledForDiskEncryption": false,
+        "enabledForTemplateDeployment": false
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers",
+      "apiVersion": "2015-05-01-preview",
+      "name": "[parameters('servers_cascadian_name')]",
+      "location": "westus2",
+      "tags": {
+        "Environment": "Production"
+      },
+      "kind": "v12.0",
+      "properties": {
+        "administratorLogin": "[concat(parameters('servers_cascadian_name'), '-xxxxxxxx')]",
+        "version": "12.0"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers",
+      "apiVersion": "2015-05-01-preview",
+      "name": "[parameters('servers_cascadian_westus2_backup_name')]",
+      "location": "eastus2",
+      "kind": "v12.0",
+      "properties": {
+        "administratorLogin": "xxxxxxx",
+        "version": "12.0"
+      }
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2019-04-01",
+      "name": "[parameters('storageAccounts_cascadianwebsitestorage_name')]",
+      "location": "westus2",
+      "tags": {
+        "Environment": "Production"
+      },
+      "sku": {
+        "name": "Standard_ZRS",
+        "tier": "Standard"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "networkAcls": {
+          "bypass": "AzureServices",
+          "virtualNetworkRules": [],
+          "ipRules": [],
+          "defaultAction": "Allow"
+        },
+        "supportsHttpsTrafficOnly": true,
+        "encryption": {
+          "services": {
+            "file": {
+              "enabled": true
+            },
+            "blob": {
+              "enabled": true
+            }
+          },
+          "keySource": "Microsoft.Storage"
+        },
+        "accessTier": "Hot"
+      }
+    },
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "apiVersion": "2016-09-01",
+      "name": "[parameters('serverfarms_cascadian_name')]",
+      "location": "West US 2",
+      "tags": {
+        "Environment": "Production"
+      },
+      "sku": {
+        "name": "P2v2",
+        "tier": "PremiumV2",
+        "size": "P2v2",
+        "family": "Pv2",
+        "capacity": 1
+      },
+      "kind": "app",
+      "properties": {
+        "name": "[parameters('serverfarms_cascadian_name')]",
+        "perSiteScaling": false,
+        "reserved": false,
+        "targetWorkerCount": 0,
+        "targetWorkerSizeId": 0
+      }
+    },
+    {
+      "type": "Microsoft.KeyVault/vaults/secrets",
+      "apiVersion": "2016-10-01",
+      "name": "[concat(parameters('vaults_cascadian_aerial_name'), '/sqlconnectionstring')]",
+      "location": "westus2",
+      "dependsOn": [
+        "[resourceId('Microsoft.KeyVault/vaults', parameters('vaults_cascadian_aerial_name'))]"
+      ],
+      "properties": {
+        "attributes": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/administrators",
+      "apiVersion": "2014-04-01-preview",
+      "name": "[concat(parameters('servers_cascadian_name'), '/ActiveDirectory')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_name'))]"
+      ],
+      "properties": {
+        "administratorType": "ActiveDirectory",
+        "login": "xxxxxxxxxxxxxxxxxxxxxxxx",
+        "sid": "00000000-0000-0000-0000-000000000000",
+        "tenantId": "00000000-0000-0000-0000-000000000000"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_cascadian_name'), '/CreateIndex')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_cascadian_westus2_backup_name'), '/CreateIndex')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_westus2_backup_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_cascadian_name'), '/DbParameterization')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_cascadian_westus2_backup_name'), '/DbParameterization')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_westus2_backup_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_cascadian_name'), '/DefragmentIndex')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_cascadian_westus2_backup_name'), '/DefragmentIndex')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_westus2_backup_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_cascadian_name'), '/DropIndex')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_cascadian_westus2_backup_name'), '/DropIndex')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_westus2_backup_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_cascadian_name'), '/ForceLastGoodPlan')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_cascadian_westus2_backup_name'), '/ForceLastGoodPlan')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_westus2_backup_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/auditingPolicies",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_cascadian_name'), '/Default')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_name'))]"
+      ],
+      "properties": {
+        "auditingState": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/auditingPolicies",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_cascadian_westus2_backup_name'), '/Default')]",
+      "location": "East US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_westus2_backup_name'))]"
+      ],
+      "properties": {
+        "auditingState": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/auditingSettings",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[concat(parameters('servers_cascadian_name'), '/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_name'))]"
+      ],
+      "properties": {
+        "state": "Disabled",
+        "retentionDays": 0,
+        "auditActionsAndGroups": [],
+        "storageAccountSubscriptionId": "00000000-0000-0000-0000-000000000000",
+        "isStorageSecondaryKeyInUse": false
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/auditingSettings",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[concat(parameters('servers_cascadian_westus2_backup_name'), '/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_westus2_backup_name'))]"
+      ],
+      "properties": {
+        "state": "Disabled",
+        "retentionDays": 0,
+        "auditActionsAndGroups": [],
+        "storageAccountSubscriptionId": "00000000-0000-0000-0000-000000000000",
+        "isStorageSecondaryKeyInUse": false
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[concat(parameters('servers_cascadian_name'), '/', parameters('servers_cascadian_name'), 'db')]",
+      "location": "westus2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_name'))]"
+      ],
+      "tags": {
+        "Environment": "Production"
+      },
+      "sku": {
+        "name": "S2",
+        "tier": "Standard"
+      },
+      "kind": "v12.0,user",
+      "properties": {
+        "collation": "SQL_Latin1_General_CP1_CI_AS",
+        "maxSizeBytes": 268435456000,
+        "catalogCollation": "SQL_Latin1_General_CP1_CI_AS",
+        "zoneRedundant": false
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[concat(parameters('servers_cascadian_westus2_backup_name'), '/cascadiandb')]",
+      "location": "eastus2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_westus2_backup_name'))]"
+      ],
+      "sku": {
+        "name": "S0",
+        "tier": "Standard"
+      },
+      "kind": "v12.0,user",
+      "properties": {
+        "collation": "SQL_Latin1_General_CP1_CI_AS",
+        "maxSizeBytes": 268435456000,
+        "catalogCollation": "SQL_Latin1_General_CP1_CI_AS",
+        "zoneRedundant": false
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/auditingPolicies",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_cascadian_name'), '/master/Default')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_name'))]"
+      ],
+      "properties": {
+        "auditingState": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/auditingPolicies",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_cascadian_westus2_backup_name'), '/master/Default')]",
+      "location": "East US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_westus2_backup_name'))]"
+      ],
+      "properties": {
+        "auditingState": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/auditingSettings",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[concat(parameters('servers_cascadian_name'), '/master/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_name'))]"
+      ],
+      "properties": {
+        "state": "Disabled",
+        "retentionDays": 0,
+        "storageAccountSubscriptionId": "00000000-0000-0000-0000-000000000000",
+        "isStorageSecondaryKeyInUse": false
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/auditingSettings",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[concat(parameters('servers_cascadian_westus2_backup_name'), '/master/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_westus2_backup_name'))]"
+      ],
+      "properties": {
+        "state": "Disabled",
+        "retentionDays": 0,
+        "storageAccountSubscriptionId": "00000000-0000-0000-0000-000000000000",
+        "isStorageSecondaryKeyInUse": false
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/extendedAuditingSettings",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[concat(parameters('servers_cascadian_westus2_backup_name'), '/master/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_westus2_backup_name'))]"
+      ],
+      "properties": {
+        "state": "Disabled",
+        "retentionDays": 0,
+        "storageAccountSubscriptionId": "00000000-0000-0000-0000-000000000000",
+        "isStorageSecondaryKeyInUse": false
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/geoBackupPolicies",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_cascadian_name'), '/master/Default')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_name'))]"
+      ],
+      "properties": {
+        "state": "Enabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/geoBackupPolicies",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_cascadian_westus2_backup_name'), '/master/Default')]",
+      "location": "East US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_westus2_backup_name'))]"
+      ],
+      "properties": {
+        "state": "Enabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/securityAlertPolicies",
+      "apiVersion": "2018-06-01-preview",
+      "name": "[concat(parameters('servers_cascadian_name'), '/master/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_name'))]"
+      ],
+      "properties": {
+        "state": "Disabled",
+        "disabledAlerts": [
+          ""
+        ],
+        "emailAddresses": [
+          ""
+        ],
+        "emailAccountAdmins": false,
+        "retentionDays": 0
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/securityAlertPolicies",
+      "apiVersion": "2018-06-01-preview",
+      "name": "[concat(parameters('servers_cascadian_westus2_backup_name'), '/master/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_westus2_backup_name'))]"
+      ],
+      "properties": {
+        "state": "Disabled",
+        "disabledAlerts": [
+          ""
+        ],
+        "emailAddresses": [
+          ""
+        ],
+        "emailAccountAdmins": false,
+        "retentionDays": 0
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_cascadian_name'), '/master/current')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_name'))]"
+      ],
+      "properties": {
+        "status": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_cascadian_westus2_backup_name'), '/master/current')]",
+      "location": "East US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_westus2_backup_name'))]"
+      ],
+      "properties": {
+        "status": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/vulnerabilityAssessments",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[concat(parameters('servers_cascadian_name'), '/master/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_name'))]"
+      ],
+      "properties": {
+        "recurringScans": {
+          "isEnabled": false,
+          "emailSubscriptionAdmins": true
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/vulnerabilityAssessments",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[concat(parameters('servers_cascadian_westus2_backup_name'), '/master/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_westus2_backup_name'))]"
+      ],
+      "properties": {
+        "recurringScans": {
+          "isEnabled": false,
+          "emailSubscriptionAdmins": true
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/encryptionProtector",
+      "apiVersion": "2015-05-01-preview",
+      "name": "[concat(parameters('servers_cascadian_name'), '/current')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_name'))]"
+      ],
+      "kind": "servicemanaged",
+      "properties": {
+        "serverKeyName": "ServiceManaged",
+        "serverKeyType": "ServiceManaged"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/encryptionProtector",
+      "apiVersion": "2015-05-01-preview",
+      "name": "[concat(parameters('servers_cascadian_westus2_backup_name'), '/current')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_westus2_backup_name'))]"
+      ],
+      "kind": "servicemanaged",
+      "properties": {
+        "serverKeyName": "ServiceManaged",
+        "serverKeyType": "ServiceManaged"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/extendedAuditingSettings",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[concat(parameters('servers_cascadian_name'), '/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_name'))]"
+      ],
+      "properties": {
+        "state": "Disabled",
+        "retentionDays": 0,
+        "auditActionsAndGroups": [],
+        "storageAccountSubscriptionId": "00000000-0000-0000-0000-000000000000",
+        "isStorageSecondaryKeyInUse": false
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/extendedAuditingSettings",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[concat(parameters('servers_cascadian_westus2_backup_name'), '/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_westus2_backup_name'))]"
+      ],
+      "properties": {
+        "state": "Disabled",
+        "retentionDays": 0,
+        "auditActionsAndGroups": [],
+        "storageAccountSubscriptionId": "00000000-0000-0000-0000-000000000000",
+        "isStorageSecondaryKeyInUse": false
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/firewallRules",
+      "apiVersion": "2015-05-01-preview",
+      "name": "[concat(parameters('servers_cascadian_name'), '/AllowAllWindowsAzureIps')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_name'))]"
+      ],
+      "properties": {
+        "startIpAddress": "0.0.0.0",
+        "endIpAddress": "0.0.0.0"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/keys",
+      "apiVersion": "2015-05-01-preview",
+      "name": "[concat(parameters('servers_cascadian_name'), '/ServiceManaged')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_name'))]"
+      ],
+      "properties": {
+        "serverKeyType": "ServiceManaged"
+      },
+      "kind": "servicemanaged"
+    },
+    {
+      "type": "Microsoft.Sql/servers/keys",
+      "apiVersion": "2015-05-01-preview",
+      "name": "[concat(parameters('servers_cascadian_westus2_backup_name'), '/ServiceManaged')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_westus2_backup_name'))]"
+      ],
+      "properties": {
+        "serverKeyType": "ServiceManaged"
+      },
+      "kind": "servicemanaged"
+    },
+    {
+      "type": "Microsoft.Sql/servers/securityAlertPolicies",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[concat(parameters('servers_cascadian_name'), '/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_name'))]"
+      ],
+      "properties": {
+        "state": "Disabled",
+        "disabledAlerts": [
+          ""
+        ],
+        "emailAddresses": [
+          ""
+        ],
+        "emailAccountAdmins": false,
+        "retentionDays": 0
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/securityAlertPolicies",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[concat(parameters('servers_cascadian_westus2_backup_name'), '/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_westus2_backup_name'))]"
+      ],
+      "properties": {
+        "state": "Disabled",
+        "disabledAlerts": [
+          ""
+        ],
+        "emailAddresses": [
+          ""
+        ],
+        "emailAccountAdmins": false,
+        "retentionDays": 0
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/vulnerabilityAssessments",
+      "apiVersion": "2018-06-01-preview",
+      "name": "[concat(parameters('servers_cascadian_name'), '/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_name'))]"
+      ],
+      "properties": {
+        "recurringScans": {
+          "isEnabled": false,
+          "emailSubscriptionAdmins": true
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/vulnerabilityAssessments",
+      "apiVersion": "2018-06-01-preview",
+      "name": "[concat(parameters('servers_cascadian_westus2_backup_name'), '/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_westus2_backup_name'))]"
+      ],
+      "properties": {
+        "recurringScans": {
+          "isEnabled": false,
+          "emailSubscriptionAdmins": true
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts/blobServices",
+      "apiVersion": "2019-04-01",
+      "name": "[concat(parameters('storageAccounts_cascadianwebsitestorage_name'), '/default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_cascadianwebsitestorage_name'))]"
+      ],
+      "properties": {
+        "cors": {
+          "corsRules": []
+        },
+        "deleteRetentionPolicy": {
+          "enabled": false
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites",
+      "apiVersion": "2016-08-01",
+      "name": "[parameters('sites_cascadian_name')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_cascadian_name'))]"
+      ],
+      "properties": {
+        "enabled": true,
+        "hostNameSslStates": [
+          {
+            "name": "[concat(parameters('sites_cascadian_name'), '.azurewebsites.net')]",
+            "sslState": "Enabled",
+            "hostType": "Standard"
+          },
+          {
+            "name": "[concat(parameters('sites_cascadian_name'), '.scm.azurewebsites.net')]",
+            "sslState": "Enabled",
+            "hostType": "Repository"
+          }
+        ],
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_cascadian_name'))]",
+        "reserved": false,
+        "scmSiteAlsoStopped": false,
+        "clientAffinityEnabled": true,
+        "clientCertEnabled": false,
+        "hostNamesDisabled": false,
+        "containerSize": 0,
+        "dailyMemoryTimeQuota": 0,
+        "httpsOnly": false
+      },
+      "location": "West US 2",
+      "tags": {
+        "Environment": "Production"
+      },
+      "kind": "app",
+      "identity": {
+        "principalId": "00000000-0000-0000-0000-000000000000",
+        "tenantId": "00000000-0000-0000-0000-000000000000",
+        "type": "SystemAssigned"
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites/config",
+      "apiVersion": "2016-08-01",
+      "name": "[concat(parameters('sites_cascadian_name'), '/web')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites', parameters('sites_cascadian_name'))]"
+      ],
+      "properties": {
+        "numberOfWorkers": 1,
+        "defaultDocuments": [
+          "Default.htm",
+          "Default.html",
+          "Default.asp",
+          "index.htm",
+          "index.html",
+          "iisstart.htm",
+          "default.aspx",
+          "index.php",
+          "hostingstart.html"
+        ],
+        "netFrameworkVersion": "v4.0",
+        "phpVersion": "5.6",
+        "pythonVersion": "",
+        "nodeVersion": "",
+        "linuxFxVersion": "",
+        "requestTracingEnabled": false,
+        "remoteDebuggingEnabled": false,
+        "remoteDebuggingVersion": "VS2017",
+        "httpLoggingEnabled": false,
+        "logsDirectorySizeLimit": 35,
+        "detailedErrorLoggingEnabled": false,
+        "publishingUsername": "$cascadian",
+        "scmType": "None",
+        "use32BitWorkerProcess": true,
+        "webSocketsEnabled": false,
+        "alwaysOn": true,
+        "appCommandLine": "",
+        "managedPipelineMode": "Integrated",
+        "virtualApplications": [
+          {
+            "virtualPath": "/",
+            "physicalPath": "site\\wwwroot",
+            "preloadEnabled": true,
+            "virtualDirectories": null
+          }
+        ],
+        "winAuthAdminState": 0,
+        "winAuthTenantState": 0,
+        "customAppPoolIdentityAdminState": false,
+        "customAppPoolIdentityTenantState": false,
+        "loadBalancing": "LeastRequests",
+        "routingRules": [],
+        "experiments": {
+          "rampUpRules": []
+        },
+        "autoHealEnabled": false,
+        "vnetName": "",
+        "siteAuthEnabled": false,
+        "siteAuthSettings": {
+          "enabled": null,
+          "unauthenticatedClientAction": null,
+          "tokenStoreEnabled": null,
+          "allowedExternalRedirectUrls": null,
+          "defaultProvider": null,
+          "clientId": null,
+          "clientSecret": null,
+          "clientSecretCertificateThumbprint": null,
+          "issuer": null,
+          "allowedAudiences": null,
+          "additionalLoginParams": null,
+          "isAadAutoProvisioned": false,
+          "googleClientId": null,
+          "googleClientSecret": null,
+          "googleOAuthScopes": null,
+          "facebookAppId": null,
+          "facebookAppSecret": null,
+          "facebookOAuthScopes": null,
+          "twitterConsumerKey": null,
+          "twitterConsumerSecret": null,
+          "microsoftAccountClientId": null,
+          "microsoftAccountClientSecret": null,
+          "microsoftAccountOAuthScopes": null
+        },
+        "localMySqlEnabled": false,
+        "managedServiceIdentityId": 50050,
+        "http20Enabled": false,
+        "minTlsVersion": "1.2",
+        "ftpsState": "AllAllowed",
+        "reservedInstanceCount": 0,
+        "fileChangeAuditEnabled": false
+      },
+      "location": "West US 2",
+      "tags": {
+        "Environment": "Production"
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites/hostNameBindings",
+      "apiVersion": "2016-08-01",
+      "name": "[concat(parameters('sites_cascadian_name'), '/', parameters('sites_cascadian_name'), '.azurewebsites.net')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites', parameters('sites_cascadian_name'))]"
+      ],
+      "properties": {
+        "siteName": "cascadian",
+        "hostNameType": "Verified"
+      },
+      "location": "West US 2"
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_cascadian_name'), '/', parameters('servers_cascadian_name'), 'db/CreateIndex')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cascadian_name'), concat(parameters('servers_cascadian_name'), 'db'))]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Enabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_cascadian_westus2_backup_name'), '/cascadiandb/CreateIndex')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cascadian_westus2_backup_name'), 'cascadiandb')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_westus2_backup_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Enabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_cascadian_name'), '/', parameters('servers_cascadian_name'), 'db/DbParameterization')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cascadian_name'), concat(parameters('servers_cascadian_name'), 'db'))]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_cascadian_westus2_backup_name'), '/cascadiandb/DbParameterization')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cascadian_westus2_backup_name'), 'cascadiandb')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_westus2_backup_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_cascadian_name'), '/', parameters('servers_cascadian_name'), 'db/DefragmentIndex')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cascadian_name'), concat(parameters('servers_cascadian_name'), 'db'))]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_cascadian_westus2_backup_name'), '/cascadiandb/DefragmentIndex')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cascadian_westus2_backup_name'), 'cascadiandb')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_westus2_backup_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_cascadian_name'), '/', parameters('servers_cascadian_name'), 'db/DropIndex')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cascadian_name'), concat(parameters('servers_cascadian_name'), 'db'))]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Enabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_cascadian_westus2_backup_name'), '/cascadiandb/DropIndex')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cascadian_westus2_backup_name'), 'cascadiandb')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_westus2_backup_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Enabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_cascadian_name'), '/', parameters('servers_cascadian_name'), 'db/ForceLastGoodPlan')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cascadian_name'), concat(parameters('servers_cascadian_name'), 'db'))]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Enabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_cascadian_westus2_backup_name'), '/cascadiandb/ForceLastGoodPlan')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cascadian_westus2_backup_name'), 'cascadiandb')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_westus2_backup_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/auditingPolicies",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_cascadian_name'), '/', parameters('servers_cascadian_name'), 'db/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cascadian_name'), concat(parameters('servers_cascadian_name'), 'db'))]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_name'))]"
+      ],
+      "properties": {
+        "auditingState": "Disabled"
+      },
+      "location": "West US 2"
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/auditingPolicies",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_cascadian_westus2_backup_name'), '/cascadiandb/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cascadian_westus2_backup_name'), 'cascadiandb')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_westus2_backup_name'))]"
+      ],
+      "properties": {
+        "auditingState": "Disabled"
+      },
+      "location": "East US 2"
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/auditingSettings",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[concat(parameters('servers_cascadian_name'), '/', parameters('servers_cascadian_name'), 'db/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cascadian_name'), concat(parameters('servers_cascadian_name'), 'db'))]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_name'))]"
+      ],
+      "properties": {
+        "state": "Disabled",
+        "retentionDays": 0,
+        "storageAccountSubscriptionId": "00000000-0000-0000-0000-000000000000",
+        "isStorageSecondaryKeyInUse": false
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/auditingSettings",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[concat(parameters('servers_cascadian_westus2_backup_name'), '/cascadiandb/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cascadian_westus2_backup_name'), 'cascadiandb')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_westus2_backup_name'))]"
+      ],
+      "properties": {
+        "state": "Disabled",
+        "retentionDays": 0,
+        "storageAccountSubscriptionId": "00000000-0000-0000-0000-000000000000",
+        "isStorageSecondaryKeyInUse": false
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/extendedAuditingSettings",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[concat(parameters('servers_cascadian_name'), '/', parameters('servers_cascadian_name'), 'db/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cascadian_name'), concat(parameters('servers_cascadian_name'), 'db'))]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_name'))]"
+      ],
+      "properties": {
+        "state": "Disabled",
+        "retentionDays": 0,
+        "storageAccountSubscriptionId": "00000000-0000-0000-0000-000000000000",
+        "isStorageSecondaryKeyInUse": false
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/extendedAuditingSettings",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[concat(parameters('servers_cascadian_westus2_backup_name'), '/cascadiandb/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cascadian_westus2_backup_name'), 'cascadiandb')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_westus2_backup_name'))]"
+      ],
+      "properties": {
+        "state": "Disabled",
+        "retentionDays": 0,
+        "storageAccountSubscriptionId": "00000000-0000-0000-0000-000000000000",
+        "isStorageSecondaryKeyInUse": false
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/geoBackupPolicies",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_cascadian_name'), '/', parameters('servers_cascadian_name'), 'db/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cascadian_name'), concat(parameters('servers_cascadian_name'), 'db'))]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_name'))]"
+      ],
+      "properties": {
+        "state": "Enabled"
+      },
+      "location": "West US 2"
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/geoBackupPolicies",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_cascadian_westus2_backup_name'), '/cascadiandb/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cascadian_westus2_backup_name'), 'cascadiandb')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_westus2_backup_name'))]"
+      ],
+      "properties": {
+        "state": "Enabled"
+      },
+      "location": "East US 2"
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/securityAlertPolicies",
+      "apiVersion": "2018-06-01-preview",
+      "name": "[concat(parameters('servers_cascadian_name'), '/', parameters('servers_cascadian_name'), 'db/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cascadian_name'), concat(parameters('servers_cascadian_name'), 'db'))]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_name'))]"
+      ],
+      "properties": {
+        "state": "Disabled",
+        "retentionDays": 0,
+        "disabledAlerts": [
+          ""
+        ],
+        "emailAddresses": [
+          ""
+        ],
+        "emailAccountAdmins": false
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/securityAlertPolicies",
+      "apiVersion": "2018-06-01-preview",
+      "name": "[concat(parameters('servers_cascadian_westus2_backup_name'), '/cascadiandb/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cascadian_westus2_backup_name'), 'cascadiandb')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_westus2_backup_name'))]"
+      ],
+      "properties": {
+        "state": "Disabled",
+        "disabledAlerts": [
+          ""
+        ],
+        "emailAddresses": [
+          ""
+        ],
+        "emailAccountAdmins": false,
+        "retentionDays": 0
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_cascadian_name'), '/', parameters('servers_cascadian_name'), 'db/current')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cascadian_name'), concat(parameters('servers_cascadian_name'), 'db'))]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_name'))]"
+      ],
+      "properties": {
+        "status": "Enabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_cascadian_westus2_backup_name'), '/cascadiandb/current')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cascadian_westus2_backup_name'), 'cascadiandb')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_westus2_backup_name'))]"
+      ],
+      "properties": {
+        "status": "Enabled"
+      },
+      "location": "East US 2"
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/vulnerabilityAssessments",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[concat(parameters('servers_cascadian_name'), '/', parameters('servers_cascadian_name'), 'db/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cascadian_name'), concat(parameters('servers_cascadian_name'), 'db'))]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_name'))]"
+      ],
+      "properties": {
+        "recurringScans": {
+          "isEnabled": false,
+          "emailSubscriptionAdmins": true
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/vulnerabilityAssessments",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[concat(parameters('servers_cascadian_westus2_backup_name'), '/cascadiandb/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cascadian_westus2_backup_name'), 'cascadiandb')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_cascadian_westus2_backup_name'))]"
+      ],
+      "properties": {
+        "recurringScans": {
+          "isEnabled": false,
+          "emailSubscriptionAdmins": true
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+      "apiVersion": "2019-04-01",
+      "name": "[concat(parameters('storageAccounts_cascadianwebsitestorage_name'), '/default/img')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts/blobServices', parameters('storageAccounts_cascadianwebsitestorage_name'), 'default')]",
+        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_cascadianwebsitestorage_name'))]"
+      ],
+      "properties": {
+        "publicAccess": "Blob"
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites/slots",
+      "apiVersion": "2016-08-01",
+      "name": "[concat(parameters('sites_cascadian_name'), '/Staging')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites', parameters('sites_cascadian_name'))]",
+        "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_cascadian_name'))]"
+      ],
+      "properties": {
+        "enabled": true,
+        "hostNameSslStates": [
+          {
+            "name": "cascadian-staging.azurewebsites.net",
+            "sslState": "Enabled",
+            "hostType": "Standard"
+          },
+          {
+            "name": "cascadian-staging.scm.azurewebsites.net",
+            "sslState": "Enabled",
+            "hostType": "Repository"
+          }
+        ],
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_cascadian_name'))]",
+        "reserved": false,
+        "scmSiteAlsoStopped": false,
+        "clientAffinityEnabled": true,
+        "clientCertEnabled": false,
+        "hostNamesDisabled": false,
+        "containerSize": 0,
+        "dailyMemoryTimeQuota": 0,
+        "httpsOnly": false
+      },
+      "location": "West US 2",
+      "kind": "app"
+    },
+    {
+      "type": "Microsoft.Web/sites/slots/config",
+      "apiVersion": "2016-08-01",
+      "name": "[concat(parameters('sites_cascadian_name'), '/Staging/web')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites/slots', parameters('sites_cascadian_name'), 'Staging')]",
+        "[resourceId('Microsoft.Web/sites', parameters('sites_cascadian_name'))]"
+      ],
+      "properties": {
+        "numberOfWorkers": 1,
+        "defaultDocuments": [
+          "Default.htm",
+          "Default.html",
+          "Default.asp",
+          "index.htm",
+          "index.html",
+          "iisstart.htm",
+          "default.aspx",
+          "index.php",
+          "hostingstart.html"
+        ],
+        "netFrameworkVersion": "v4.0",
+        "phpVersion": "5.6",
+        "pythonVersion": "",
+        "nodeVersion": "",
+        "linuxFxVersion": "",
+        "requestTracingEnabled": false,
+        "remoteDebuggingEnabled": false,
+        "remoteDebuggingVersion": "VS2017",
+        "httpLoggingEnabled": false,
+        "logsDirectorySizeLimit": 35,
+        "detailedErrorLoggingEnabled": false,
+        "publishingUsername": "$cascadian__Staging",
+        "scmType": "None",
+        "use32BitWorkerProcess": true,
+        "webSocketsEnabled": false,
+        "alwaysOn": true,
+        "appCommandLine": "",
+        "managedPipelineMode": "Integrated",
+        "virtualApplications": [
+          {
+            "virtualPath": "/",
+            "physicalPath": "site\\wwwroot",
+            "preloadEnabled": true,
+            "virtualDirectories": null
+          }
+        ],
+        "winAuthAdminState": 0,
+        "winAuthTenantState": 0,
+        "customAppPoolIdentityAdminState": false,
+        "customAppPoolIdentityTenantState": false,
+        "loadBalancing": "LeastRequests",
+        "routingRules": [],
+        "experiments": {
+          "rampUpRules": []
+        },
+        "autoHealEnabled": false,
+        "vnetName": "",
+        "siteAuthEnabled": false,
+        "siteAuthSettings": {
+          "enabled": null,
+          "unauthenticatedClientAction": null,
+          "tokenStoreEnabled": null,
+          "allowedExternalRedirectUrls": null,
+          "defaultProvider": null,
+          "clientId": null,
+          "clientSecret": null,
+          "clientSecretCertificateThumbprint": null,
+          "issuer": null,
+          "allowedAudiences": null,
+          "additionalLoginParams": null,
+          "isAadAutoProvisioned": false,
+          "googleClientId": null,
+          "googleClientSecret": null,
+          "googleOAuthScopes": null,
+          "facebookAppId": null,
+          "facebookAppSecret": null,
+          "facebookOAuthScopes": null,
+          "twitterConsumerKey": null,
+          "twitterConsumerSecret": null,
+          "microsoftAccountClientId": null,
+          "microsoftAccountClientSecret": null,
+          "microsoftAccountOAuthScopes": null
+        },
+        "localMySqlEnabled": false,
+        "http20Enabled": false,
+        "minTlsVersion": "1.2",
+        "ftpsState": "AllAllowed",
+        "reservedInstanceCount": 0,
+        "fileChangeAuditEnabled": false
+      },
+      "location": "West US 2"
+    },
+    {
+      "type": "Microsoft.Web/sites/slots/hostNameBindings",
+      "apiVersion": "2016-08-01",
+      "name": "[concat(parameters('sites_cascadian_name'), '/Staging/', parameters('sites_cascadian_name'), '-staging.azurewebsites.net')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites/slots', parameters('sites_cascadian_name'), 'Staging')]",
+        "[resourceId('Microsoft.Web/sites', parameters('sites_cascadian_name'))]"
+      ],
+      "properties": {
+        "siteName": "cascadian(Staging)",
+        "hostNameType": "Verified"
+      },
+      "location": "West US 2"
+    }
+  ]
+}
