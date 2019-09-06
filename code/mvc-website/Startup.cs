@@ -17,6 +17,8 @@ namespace mvc_website
 {
     public class Startup
     {
+        private const string Http404Text = "<!DOCTYPE html>\r\n<html lang=\"en\" class=\"no-js\">\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>Page not found</title>\r\n    <meta name=\"description\" content=\"\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\">\r\n    <meta property=\"og:image\" content=\"https://cascadian-aerial-robotics-cdn1.azureedge.net/img/404.webp\">\r\n    <!--Favicon-->\r\n    <link rel=\"icon\" href=\"https://cascadian-aerial-robotics-cdn1.azureedge.net/img/favicon/favicon.ico\">\r\n    <!--Libs css-->\r\n    <link rel=\"stylesheet\" href=\"https://cascadian-aerial-robotics-cdn1.azureedge.net/v1-0/css/libs.css\">\r\n    <!--Main css-->\r\n    <link rel=\"stylesheet\" href=\"https://cascadian-aerial-robotics-cdn1.azureedge.net/v1-0/css/main.css\">\r\n</head>\r\n<body>\r\n    <header id=\"top-nav\" class=\"top-nav page-header\">\r\n        <div class=\"container\">\r\n            <a href=\"/\" class=\"logo smooth-scroll\"><img src=\"https://cascadian-aerial-robotics-cdn1.azureedge.net/img/cascadian-logo.png\" alt=\"logo\" class=\"logo-white\"><img src=\"https://cascadian-aerial-robotics-cdn1.azureedge.net/img/cascadian-logo-dark.png\" alt=\"logo\" class=\"logo-dark\"></a>\r\n        </div>\r\n    </header>\r\n        \r\n    <!-- End full screen top nav-->\r\n    <div id=\"top\" class=\"slider\">\r\n        <div class=\"wrap-header\">\r\n            <!-- Start slide-->\r\n            <div data-image=\"https://cascadian-aerial-robotics-cdn1.azureedge.net/img/404.webp\" class=\"slide bg-mask background-image full-vh\" style=\"background-image: url('https://cascadian-aerial-robotics-cdn1.azureedge.net/img/404.webp');\">\r\n                <div class=\"container-slide vertical-align center\">\r\n                    <div class=\"container\">\r\n                        <div class=\"row\">\r\n                            <div class=\"col-md-12\">\r\n                                <h1 class=\"heading-title-big\">\r\n\r\n                                    Page not <span>found</span>\r\n                                </h1>\r\n                                <div class=\"description-slide\">It seems you are a little lost <span>Need some mapping maybe?</span></div>\r\n                                <div class=\"buttons-section\"><a href=\"https://www.cascadianaerialrobotics.com/\" class=\" btn dark-btn large-btn\">Go to the main page</a></div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</body>\r\n</html>\r\n    ";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -108,12 +110,22 @@ namespace mvc_website
 
             app.UseCookiePolicy();
 
-            app.UseMvc(routes =>
+            app.UseStatusCodePages(async context =>
             {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                if (context.HttpContext.Response.StatusCode == StatusCodes.Status404NotFound)
+                {
+                    //  TODO: Issue #10 : What a fugly solution, I know, but I need to do this for the release, I'll attach the razor renderer.
+                    await context.HttpContext.Response.WriteAsync(Http404Text);
+                }
+
             });
+
+            app.UseMvc(routes =>
+              {
+                  routes.MapRoute(
+                      name: "default",
+                      template: "{controller=Home}/{action=Index}/{id?}");
+              });
         }
         #endregion
 
@@ -141,6 +153,7 @@ namespace mvc_website
         {
             app.UseHttpsRedirection();
             app.UseCookiePolicy();
+            app.UseDefaultFiles();
             app.UseStaticFiles();
 
             app.UseExceptionHandler("/Home/Error");
@@ -150,7 +163,7 @@ namespace mvc_website
                 if (context.HttpContext.Response.StatusCode == StatusCodes.Status404NotFound)
                 {
                     //  TODO: Issue #10 : What a fugly solution, I know, but I need to do this for the release, I'll attach the razor renderer.
-                    await context.HttpContext.Response.WriteAsync("<!DOCTYPE html>\r\n<html lang=\"en\" class=\"no-js\">\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>Page not found</title>\r\n    <meta name=\"description\" content=\"\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\">\r\n    <meta property=\"og:image\" content=\"https://cascadian-aerial-robotics-cdn1.azureedge.net/img/404.webp\">\r\n    <!--Favicon-->\r\n    <link rel=\"icon\" href=\"https://cascadian-aerial-robotics-cdn1.azureedge.net/img/favicon/favicon.ico\">\r\n    <!--Libs css-->\r\n    <link rel=\"stylesheet\" href=\"https://cascadian-aerial-robotics-cdn1.azureedge.net/v1-0/css/libs.css\">\r\n    <!--Main css-->\r\n    <link rel=\"stylesheet\" href=\"https://cascadian-aerial-robotics-cdn1.azureedge.net/v1-0/css/main.css\">\r\n</head>\r\n<body>\r\n    <header id=\"top-nav\" class=\"top-nav page-header\">\r\n        <div class=\"container\">\r\n            <a href=\"/\" class=\"logo smooth-scroll\"><img src=\"https://cascadian-aerial-robotics-cdn1.azureedge.net/img/cascadian-logo.png\" alt=\"logo\" class=\"logo-white\"><img src=\"https://cascadian-aerial-robotics-cdn1.azureedge.net/img/cascadian-logo-dark.png\" alt=\"logo\" class=\"logo-dark\"></a>\r\n        </div>\r\n    </header>\r\n        \r\n    <!-- End full screen top nav-->\r\n    <div id=\"top\" class=\"slider\">\r\n        <div class=\"wrap-header\">\r\n            <!-- Start slide-->\r\n            <div data-image=\"https://cascadian-aerial-robotics-cdn1.azureedge.net/img/404.webp\" class=\"slide bg-mask background-image full-vh\" style=\"background-image: url('https://cascadian-aerial-robotics-cdn1.azureedge.net/img/404.webp');\">\r\n                <div class=\"container-slide vertical-align center\">\r\n                    <div class=\"container\">\r\n                        <div class=\"row\">\r\n                            <div class=\"col-md-12\">\r\n                                <h1 class=\"heading-title-big\">\r\n\r\n                                    Page not <span>found</span>\r\n                                </h1>\r\n                                <div class=\"description-slide\">It seems you are a little lost <span>Need some mapping maybe?</span></div>\r\n                                <div class=\"buttons-section\"><a href=\"https://www.cascadianaerialrobotics.com/\" class=\" btn dark-btn large-btn\">Go to the main page</a></div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</body>\r\n</html>\r\n    ");
+                    await context.HttpContext.Response.WriteAsync(Http404Text);
                 }
 
             });

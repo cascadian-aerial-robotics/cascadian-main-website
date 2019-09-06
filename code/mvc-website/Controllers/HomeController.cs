@@ -48,11 +48,11 @@ namespace CascadianAerialRobotics.Website.Controllers
             return View("Bookings");
         }
 
-        [Route("FAQ")]
-        public IActionResult Faq()
-        {
-            return View("Faq");
-        }
+        //[Route("FAQ")]
+        //public IActionResult Faq()
+        //{
+        //    return View("Faq");
+        //}
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
