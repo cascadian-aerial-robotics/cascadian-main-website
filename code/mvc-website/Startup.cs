@@ -153,7 +153,7 @@ namespace mvc_website
         {
             app.UseHttpsRedirection();
             app.UseCookiePolicy();
-            app.UseDefaultFiles();
+            //app.UseDefaultFiles();
             app.UseStaticFiles();
 
             app.UseExceptionHandler("/Home/Error");

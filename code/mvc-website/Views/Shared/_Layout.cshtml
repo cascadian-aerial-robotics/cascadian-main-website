@@ -26,14 +26,14 @@
 <html lang="en" class="no-js">
 <head>
     <meta charset="utf-8">
-    <title>Cascadian Aerial Robotics LLC - Drone mapping services in Washington State</title>
-    <meta name="description" content="Drone mapping, photogrammetry and GIS in the Pacific Northwest">
+    <title>Cascadian Aerial Robotics LLC - Drone mapping, photogrammetry and GIS services in the Pacific Northwest</title>
+    <meta name="description" content="Drone mapping, photogrammetry and GIS services in the Pacific Northwest">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta property="og:title" content="Homepage">
     <meta property="og:site_name" content="Cascadian Aerial Robotics LLC">
     <meta property="og:url" content="https://www.cascadianaerialrobotics.com">
-    <meta property="og:description" content="Drone mapping services in Washington State">
+    <meta property="og:description" content="Drone mapping, photogrammetry and GIS services in the Pacific Northwest">
     <meta property="og:type" content="website">
     <meta property="og:image" content="@(Model.PubliclyExposedStringsProvider.StaticFilesUrl)/img/open-graph-image.png">
     <!--Favicon-->
@@ -43,10 +43,9 @@
     <!--Main css-->
     <link rel="stylesheet" href="@(Model.PubliclyExposedStringsProvider.StaticFilesUrl)/v1-0/css/main.css">
 
-    <environment include="Development,PreProd,Production">
-        @Html.Raw(JavaScriptSnippet.FullScript)
-    </environment>
-
+    <!-- App Insights-->
+    @Html.Raw(JavaScriptSnippet.FullScript)
+    <!-- App Insights-->
 
 
 </head>

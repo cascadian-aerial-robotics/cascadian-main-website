@@ -4,11 +4,11 @@ using CascadianAerialRobotics.Website.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-namespace CascadianAerialRobotics.Website.Views.Shared.Components.Jumbotron
+namespace CascadianAerialRobotics.Website.Views.Shared.Components.JumbotronWithVideo
 {
-    public class JumbotronViewComponent : CascadianViewComponentBase
+    public class JumbotronWithVideoViewComponent : CascadianViewComponentBase
     {
-        public JumbotronViewComponent(IPubliclyExposedStringsProvider publiclyExposedStringsProvider) : base(publiclyExposedStringsProvider)
+        public JumbotronWithVideoViewComponent(IPubliclyExposedStringsProvider publiclyExposedStringsProvider) : base(publiclyExposedStringsProvider)
         {
         }
 
