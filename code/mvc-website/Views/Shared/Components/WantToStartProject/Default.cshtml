@@ -1,6 +1,9 @@
-﻿<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+﻿@using CascadianAerialRobotics.Website.Models
+@model CommonComponentModel
+
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
-<section id="bookanappointment" data-image="https://cascadian-aerial-robotics-cdn1.azureedge.net/img/background-cascadia.webp" class="section-trigger bg-dark-section background-image" style="background-image: url(&quot;https://cascadian-aerial-robotics-cdn1.azureedge.net/img/background-cascadia.webp&quot;);">
+<section id="bookanappointment" data-image="@(Model.PubliclyExposedStringsProvider.StaticFilesUrl)/img/background-cascadia.webp" class="section-trigger bg-dark-section background-image" style="background-image: url(&quot;@(Model.PubliclyExposedStringsProvider.StaticFilesUrl)/img/background-cascadia.webp&quot;);">
     <div class="container">
         <div class="row">
             <div class="col-md-12">

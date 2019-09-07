@@ -1,9 +1,14 @@
-﻿<footer>
+﻿
+@using CascadianAerialRobotics.Website.Models
+@model CommonComponentModel
+
+
+<footer>
     <div class="container">
         <div class="row">
             <div class="col-md-3">
                 <div style="text-align:center">
-                    <img src="https://cascadian-aerial-robotics-cdn1.azureedge.net/img/cascadian-logo.png" alt="logo" class="logo-white" style="height:76px;width:233px;">
+                    <img src="@(Model.PubliclyExposedStringsProvider.StaticFilesUrl)/img/cascadian-logo.png" alt="logo" class="logo-white" style="height:76px;width:233px;">
                 </div>
                 @*<p>We are drone technology enthusiasts that strive to deliver not only perceived but measurable value, and we do it with the highest safety standards and compliance.</p>*@
                 <ul class="social-links">
@@ -16,7 +21,7 @@
                 </ul>
                 <ul class="social-links">
                     <li><a href="https://twitter.com/cascadianaerial/" target="_blank" rel="noopener noreferrer" title="Cascadian Aerial Robotics LLC • Twitter handle"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="https://github.com/cascadian-aerial-robotics/"  target="_blank" rel="noopener noreferrer"  title="Cascadian Aerial Robotics LLC • Github organization"><i class="fa fa-github"></i></a></li>
+                    <li><a href="https://github.com/cascadian-aerial-robotics/" target="_blank" rel="noopener noreferrer" title="Cascadian Aerial Robotics LLC • Github organization"><i class="fa fa-github"></i></a></li>
                     <li><a href="https://cascadian-aerial.slack.com/join/shared_invite/enQtNzAzNDA5MDY3NzE1LTBjNmZhYTAxNGU5NDhlNzE0NDgxZWVlYjZjNmFhZWEzYjRlMzdhMDJkMTg5ZmJhMDk3ZjJkZjIyNGNmNmEyNzY" target="_blank" rel="noopener noreferrer" title="Cascadian Aerial Robotics • Slack workspace"><i class="fa fa-slack"></i></a></li>
                     <li><a href="https://keybase.io/cascadianaerial/" target="_blank" rel="noopener noreferrer" title="Cascadian Aerial Robotics LLC • Public keys"><i class="fa fa-key"></i></a></li>
                     <li><a href="https://www.slideshare.net/cascadianaerialrobotics/" target="_blank" rel="noopener noreferrer" title="Cascadian Aerial Robotics LLC • Slideshare"><i class="fa fa-slideshare"></i></a></li>
@@ -24,15 +29,15 @@
             </div>
             <div class="col-md-3">
                 @*<div class="links">
-                    <h5>Addtional links</h5>
-                    <ul class="list">
-                        <li><a href="#">More links</a></li>
-                        <li><a href="#">More links</a></li>
-                        <li><a href="#">More links</a></li>
-                        <li><a href="#">More links</a></li>
-                        <li><a href="#">More links</a></li>
-                    </ul>
-                </div>*@
+                        <h5>Addtional links</h5>
+                        <ul class="list">
+                            <li><a href="#">More links</a></li>
+                            <li><a href="#">More links</a></li>
+                            <li><a href="#">More links</a></li>
+                            <li><a href="#">More links</a></li>
+                            <li><a href="#">More links</a></li>
+                        </ul>
+                    </div>*@
             </div>
             <div class="col-md-3">
                 <div class="links">
@@ -71,9 +76,9 @@
                         <li><a asp-action="index" asp-controller="home" asp-fragment="getintouch">Contact us</a></li>
                         <li><a asp-action="bookings" asp-controller="home">Bookings</a></li>
                         @*<li><a href="#services" class="smooth-scroll">Services</a></li>
-                        <li><a href="#portfolio" class="smooth-scroll">Our works</a></li>
-                        <li><a href="#skills" class="smooth-scroll">Skills</a></li>
-                        <li> <a href="#contact" class="smooth-scroll">Contact</a></li>*@
+                            <li><a href="#portfolio" class="smooth-scroll">Our works</a></li>
+                            <li><a href="#skills" class="smooth-scroll">Skills</a></li>
+                            <li> <a href="#contact" class="smooth-scroll">Contact</a></li>*@
                     </ul>
                 </div>
             </div>
@@ -83,6 +88,6 @@
 
 <div class="top icon-down toTopFromBottom">
     <a href="#top" class="smooth-scroll">
-    <i class="pe-7s-angle-up"></i>
+        <i class="pe-7s-angle-up"></i>
     </a>
 </div>

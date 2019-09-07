@@ -1,10 +1,12 @@
-﻿
+﻿@using CascadianAerialRobotics.Website.Models
+@model CommonComponentModel
+
 @{
     ViewData["Title"] = "Bookings";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<section data-image="https://cascadian-aerial-robotics-cdn1.azureedge.net/img/background-nikehq.webp" id="top" class="display-page img-parallax bg-mask background-image" style="background-position: 50% 0px; background-image: url(&quot;https://cascadian-aerial-robotics-cdn1.azureedge.net/img/background-nikehq.webp&quot;);">
+<section data-image="@(Model.PubliclyExposedStringsProvider.StaticFilesUrl)/img/background-nikehq.webp" id="top" class="display-page img-parallax bg-mask background-image" style="background-position: 50% 0px; background-image: url(&quot;@(Model.PubliclyExposedStringsProvider.StaticFilesUrl)/img/background-nikehq.webp&quot;);">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -23,10 +25,8 @@
 </section>
 @*<section class="contact-form">*@
 <!-- Calendly inline widget begin -->
-    <div class="calendly-inline-widget" data-url="https://calendly.com/cascadian-aerial-robotics?hide_landing_page_details=1" style="min-width:320px;height:930px;"></div>
-    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
-    <!-- Calendly inline widget end -->
-
-
+<div class="calendly-inline-widget" data-url="https://calendly.com/cascadian-aerial-robotics?hide_landing_page_details=1" style="min-width:320px;height:930px;"></div>
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
+<!-- Calendly inline widget end -->
 @*</section>*@
 

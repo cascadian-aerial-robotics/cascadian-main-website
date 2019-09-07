@@ -1,4 +1,7 @@
-﻿<section id="services" data-image="https://cascadian-aerial-robotics-cdn1.azureedge.net/img/background-nikehq.webp" class="services-section background-image bg-dark-section">
+﻿@using CascadianAerialRobotics.Website.Models
+@model CommonComponentModel
+
+<section id="services" data-image="@(Model.PubliclyExposedStringsProvider.StaticFilesUrl)/img/background-nikehq.webp" class="services-section background-image bg-dark-section">
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-push-2">

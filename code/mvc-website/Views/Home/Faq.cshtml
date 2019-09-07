@@ -1,13 +1,15 @@
-﻿
+﻿@using CascadianAerialRobotics.Website.Models
+@model CommonComponentModel
+
 @{
     ViewData["Title"] = "Frequently asked questions";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-    @*<h1>Frequently asked questions</h1>*@
+@*<h1>Frequently asked questions</h1>*@
 
 <!-- Start Content section-->
-<section data-image="https://cascadian-aerial-robotics-cdn1.azureedge.net/img/background-mountrainier.webp" id="top" class="display-page bg-dark-section background-image">
+<section data-image="@(Model.PubliclyExposedStringsProvider.StaticFilesUrl)/img/background-mountrainier.webp" id="top" class="display-page bg-dark-section background-image">
     <div class="container">
         <div class="row">
             <div class="col-md-12">

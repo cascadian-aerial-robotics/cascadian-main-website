@@ -26,6 +26,7 @@ namespace CascadianAerialRobotics.Website.DependencyProfiles.Production
             services.AddTransient<IContactInfoRepository, SqlContactInfoRepository>();
             services.AddTransient<IContactMessageRepository, SqlContactMessageRepository>();
             services.AddTransient<IContactMessageLogger, ContactMessageLogger>();
+            services.AddTransient<IPubliclyExposedStringsProvider, PubliclyExposedStringsProvider>();
 
         }
     }

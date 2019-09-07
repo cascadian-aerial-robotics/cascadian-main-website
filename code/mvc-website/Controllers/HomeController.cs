@@ -1,6 +1,9 @@
 ﻿
+using Cascadian.Abstractions;
+using CascadianAerialRobotics.Website.Models;
 using Grump.Abstractions;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using mvc_website.Models;
 using System.Diagnostics;
@@ -8,51 +11,48 @@ using System.Threading.Tasks;
 
 namespace CascadianAerialRobotics.Website.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : CascadianControllerBase
     {
-        public ISecretsProvider SecretsProvider { get; private set; }
 
-        public ILogger Logger { get; set; }
-
-        public HomeController(ILogger logger)
+        public HomeController(IConfiguration configuration, ISecretsProvider secretsProvider, ILogger logger, IPubliclyExposedStringsProvider publiclyExposedStringsProvider) : base(configuration, secretsProvider, logger, publiclyExposedStringsProvider)
         {
-            Logger = logger;
+
         }
 
         public IActionResult Index()
         {
-            return View();
+            return View(new CommonComponentModel { PubliclyExposedStringsProvider = this.PubliclyExposedStringsProvider });
         }
 
         [Route("Privacy")]
         public IActionResult Privacy()
         {
-            return View("Privacy");
+            return View("Privacy", new CommonComponentModel { PubliclyExposedStringsProvider = this.PubliclyExposedStringsProvider });
         }
 
         [Route("Newsletter")]
         public IActionResult Newsletter()
         {
-            return View("Newsletter");
+            return View("Newsletter", new CommonComponentModel { PubliclyExposedStringsProvider = this.PubliclyExposedStringsProvider });
         }
 
         [Route("Newsletter2")]
         public IActionResult Newsletter2()
         {
-            return View("Newsletter2");
+            return View("Newsletter2", new CommonComponentModel { PubliclyExposedStringsProvider = this.PubliclyExposedStringsProvider });
         }
 
         [Route("Bookings")]
         public IActionResult Bookings()
         {
-            return View("Bookings");
+            return View("Bookings", new CommonComponentModel { PubliclyExposedStringsProvider = this.PubliclyExposedStringsProvider });
         }
 
-        //[Route("FAQ")]
-        //public IActionResult Faq()
-        //{
-        //    return View("Faq");
-        //}
+        [Route("FAQ")]
+        public IActionResult Faq()
+        {
+            return View("Faq", new CommonComponentModel { PubliclyExposedStringsProvider = this.PubliclyExposedStringsProvider });
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

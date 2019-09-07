@@ -1,10 +1,13 @@
-﻿
+﻿@using CascadianAerialRobotics.Website.Models
+@model CommonComponentModel
+
 @{
     ViewData["Title"] = "Default";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<section data-image="https://cascadian-aerial-robotics-cdn1.azureedge.net/img/background-nikehq.webp" id="top" class="display-page img-parallax bg-mask background-image" style="background-position: 50% 0px; background-image: url(&quot;https://cascadian-aerial-robotics-cdn1.azureedge.net/img/background-nikehq.webp&quot;);">
+
+<section data-image="@(Model.PubliclyExposedStringsProvider.StaticFilesUrl)/img/background-nikehq.webp" id="top" class="display-page img-parallax bg-mask background-image" style="background-position: 50% 0px; background-image: url(&quot;@(Model.PubliclyExposedStringsProvider.StaticFilesUrl)/img/background-nikehq.webp&quot;);">
     <div class="container">
         <div class="row">
             <div class="col-md-12">

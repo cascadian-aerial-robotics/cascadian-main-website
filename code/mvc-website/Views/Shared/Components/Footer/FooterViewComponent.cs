@@ -1,17 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Cascadian.Abstractions;
+using CascadianAerialRobotics.Website.Components;
+using CascadianAerialRobotics.Website.Models;
+using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace CascadianAerialRobotics.Website.Views.Components.FooterComponent
 {
-    public class FooterViewComponent : ViewComponent
+    public class FooterViewComponent : CascadianViewComponentBase
     {
-        public FooterViewComponent()
+
+        public FooterViewComponent(IPubliclyExposedStringsProvider publiclyExposedStringsProvider) : base(publiclyExposedStringsProvider)
         {
         }
 
         public Task<IViewComponentResult> InvokeAsync()
         {
-            return Task.FromResult((IViewComponentResult)View());
+            return Task.FromResult((IViewComponentResult)View(new CommonComponentModel { PubliclyExposedStringsProvider = this.PubliclyExposedStringsProvider }));
         }
     }
 }
