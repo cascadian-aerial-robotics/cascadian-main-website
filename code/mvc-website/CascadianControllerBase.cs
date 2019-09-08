@@ -14,9 +14,9 @@ namespace CascadianAerialRobotics.Website.Controllers
 
         public ILogger Logger { get; set; }
 
-        public IPubliclyExposedStringsProvider PubliclyExposedStringsProvider { get; set; }
+        public IViewModelSettingsProvider PubliclyExposedStringsProvider { get; set; }
 
-        public CascadianControllerBase(IConfiguration configuration, ISecretsProvider secretsProvider, ILogger logger, IPubliclyExposedStringsProvider publiclyExposedStringsProvider)
+        public CascadianControllerBase(IConfiguration configuration, ISecretsProvider secretsProvider, ILogger logger, IViewModelSettingsProvider publiclyExposedStringsProvider)
         {
             Configuration = configuration;
             SecretsProvider = secretsProvider;

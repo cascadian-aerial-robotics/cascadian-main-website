@@ -8,7 +8,7 @@ namespace CascadianAerialRobotics.Website.Views.Shared.Components.Header
 {
     public class HeaderViewComponent : CascadianViewComponentBase
     {
-        public HeaderViewComponent(IPubliclyExposedStringsProvider publiclyExposedStringsProvider) : base(publiclyExposedStringsProvider)
+        public HeaderViewComponent(IViewModelSettingsProvider publiclyExposedStringsProvider) : base(publiclyExposedStringsProvider)
         {
         }
 

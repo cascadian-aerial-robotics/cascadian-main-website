@@ -4,9 +4,11 @@ using System.Text;
 
 namespace Cascadian.Abstractions
 {
-    public interface IPubliclyExposedStringsProvider
+    public interface IViewModelSettingsProvider
     {
         string StaticFilesUrl { get; }
+
+        bool UseLocalStyleBackgroundSetting { get; }
 
     }
 }

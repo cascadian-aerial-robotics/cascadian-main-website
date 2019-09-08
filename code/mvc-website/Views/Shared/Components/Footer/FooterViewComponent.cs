@@ -9,7 +9,7 @@ namespace CascadianAerialRobotics.Website.Views.Components.FooterComponent
     public class FooterViewComponent : CascadianViewComponentBase
     {
 
-        public FooterViewComponent(IPubliclyExposedStringsProvider publiclyExposedStringsProvider) : base(publiclyExposedStringsProvider)
+        public FooterViewComponent(IViewModelSettingsProvider publiclyExposedStringsProvider) : base(publiclyExposedStringsProvider)
         {
         }
 

@@ -8,7 +8,7 @@ namespace CascadianAerialRobotics.Website.Views.Shared.Components.Garanteed
 {
     public class GuaranteeViewComponent : CascadianViewComponentBase
     {
-        public GuaranteeViewComponent(IPubliclyExposedStringsProvider publiclyExposedStringsProvider) : base(publiclyExposedStringsProvider)
+        public GuaranteeViewComponent(IViewModelSettingsProvider publiclyExposedStringsProvider) : base(publiclyExposedStringsProvider)
         {
         }
 

@@ -8,7 +8,7 @@ namespace CascadianAerialRobotics.Website.Views.Shared.Components.Industries
 {
     public class IndustriesViewComponent : CascadianViewComponentBase
     {
-        public IndustriesViewComponent(IPubliclyExposedStringsProvider publiclyExposedStringsProvider) : base(publiclyExposedStringsProvider)
+        public IndustriesViewComponent(IViewModelSettingsProvider publiclyExposedStringsProvider) : base(publiclyExposedStringsProvider)
         {
         }
 

@@ -8,7 +8,7 @@ namespace CascadianAerialRobotics.Website.Views.Shared.Components.WhyChooseUs
 {
     public class WhyChooseUsViewComponent : CascadianViewComponentBase
     {
-        public WhyChooseUsViewComponent(IPubliclyExposedStringsProvider publiclyExposedStringsProvider) : base(publiclyExposedStringsProvider)
+        public WhyChooseUsViewComponent(IViewModelSettingsProvider publiclyExposedStringsProvider) : base(publiclyExposedStringsProvider)
         {
         }
 

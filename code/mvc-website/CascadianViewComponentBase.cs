@@ -6,9 +6,9 @@ namespace CascadianAerialRobotics.Website.Components
     
     public abstract class CascadianViewComponentBase : ViewComponent
     {
-        public IPubliclyExposedStringsProvider PubliclyExposedStringsProvider { get; set; }
+        public IViewModelSettingsProvider PubliclyExposedStringsProvider { get; set; }
 
-        public CascadianViewComponentBase(IPubliclyExposedStringsProvider publiclyExposedStringsProvider)
+        public CascadianViewComponentBase(IViewModelSettingsProvider publiclyExposedStringsProvider)
         {
             PubliclyExposedStringsProvider = publiclyExposedStringsProvider;
         }

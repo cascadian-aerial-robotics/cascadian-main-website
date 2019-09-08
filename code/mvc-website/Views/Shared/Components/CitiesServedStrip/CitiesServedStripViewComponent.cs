@@ -7,7 +7,7 @@ namespace CascadianAerialRobotics.Website.Components
 { 
     public class CitiesServedStripViewComponent : CascadianViewComponentBase
     {
-        public CitiesServedStripViewComponent(IPubliclyExposedStringsProvider publiclyExposedStringsProvider) : base(publiclyExposedStringsProvider)
+        public CitiesServedStripViewComponent(IViewModelSettingsProvider publiclyExposedStringsProvider) : base(publiclyExposedStringsProvider)
         {
         }
 

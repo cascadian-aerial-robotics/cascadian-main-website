@@ -8,7 +8,7 @@ namespace CascadianAerialRobotics.Website.Views.Shared.Components
 {
     public class GetInTouchViewComponent : CascadianViewComponentBase
     {
-        public GetInTouchViewComponent(IPubliclyExposedStringsProvider publiclyExposedStringsProvider) : base(publiclyExposedStringsProvider)
+        public GetInTouchViewComponent(IViewModelSettingsProvider publiclyExposedStringsProvider) : base(publiclyExposedStringsProvider)
         {
         }
 

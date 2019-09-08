@@ -8,7 +8,7 @@ namespace CascadianAerialRobotics.Website.Views.Shared.Components.JumbotronWithV
 {
     public class JumbotronWithVideoViewComponent : CascadianViewComponentBase
     {
-        public JumbotronWithVideoViewComponent(IPubliclyExposedStringsProvider publiclyExposedStringsProvider) : base(publiclyExposedStringsProvider)
+        public JumbotronWithVideoViewComponent(IViewModelSettingsProvider publiclyExposedStringsProvider) : base(publiclyExposedStringsProvider)
         {
         }
 

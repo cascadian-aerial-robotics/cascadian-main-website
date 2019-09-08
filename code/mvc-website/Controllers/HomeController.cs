@@ -14,7 +14,7 @@ namespace CascadianAerialRobotics.Website.Controllers
     public class HomeController : CascadianControllerBase
     {
 
-        public HomeController(IConfiguration configuration, ISecretsProvider secretsProvider, ILogger logger, IPubliclyExposedStringsProvider publiclyExposedStringsProvider) : base(configuration, secretsProvider, logger, publiclyExposedStringsProvider)
+        public HomeController(IConfiguration configuration, ISecretsProvider secretsProvider, ILogger logger, IViewModelSettingsProvider publiclyExposedStringsProvider) : base(configuration, secretsProvider, logger, publiclyExposedStringsProvider)
         {
 
         }
