@@ -51,6 +51,8 @@ namespace Cascadian.Website.Services
             }
         }
 
+        public string LegacyImagesUrl => Configuration["legacyimagesurl"] ?? "";
+
         private bool? _useLocalStyleBackgroundSetting;
 
 

@@ -50,7 +50,9 @@
     <script>
 
         function setVariable(feature, availability) {
-            window.webPSupport = false;
+            console.log('Entering set variable function');
+            window.webPSupport = availability;
+            window.legacyImagesUrl = "@(Model.PubliclyExposedStringsProvider.LegacyImagesUrl)";
         };
 
         
@@ -58,6 +60,7 @@
         //   'feature' can be one of 'lossy', 'lossless', 'alpha' or 'animation'.
         //   'callback(feature, result)' will be passed back the detection result (in an asynchronous way!)
         function check_webp_feature(feature, callback) {
+            console.log('Entering check_webp_feature function');
             var kTestImages = {
                 lossy: "UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA",
                 lossless: "UklGRhoAAABXRUJQVlA4TA0AAAAvAAAAEAcQERGIiP4HAA==",
@@ -94,7 +97,7 @@
     <script src="@(Model.PubliclyExposedStringsProvider.StaticFilesUrl)/v1-0/js/libs.js"></script>
     <!--Use scripts-->
     <script src="@(Model.PubliclyExposedStringsProvider.StaticFilesUrl)/v1-0/js/common.js"></script>
-
+    <script src="~/v1-0/js/cascadian.js"></script>
 </body>
 
 </html>

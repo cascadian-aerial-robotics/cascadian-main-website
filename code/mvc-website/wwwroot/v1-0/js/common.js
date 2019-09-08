@@ -559,20 +559,9 @@
 		Background slider function
 	-------------------------------------*/
     $('.background-image').each(function () {
-        var sourceProperty = "";
-
-        if (window.webPSupport === true) {
-            sourceProperty = "data-image";
-        } else {
-            sourceProperty = "data-image-nowebp";
-        }
-
-        var staticFilesUrl = $(this).attr('static-files-url');
-
-        var fileName = $(this).attr(sourceProperty);
-
-        if (fileName) {
-            $(this).css('background-image', 'url(' + staticFilesUrl + fileName + ')');
+        var url = $(this).attr('data-image');
+        if (url) {
+            $(this).css('background-image', 'url(' + url + ')');
         }
     });
 

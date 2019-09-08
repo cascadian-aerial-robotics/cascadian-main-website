@@ -8,6 +8,8 @@ namespace Cascadian.Abstractions
     {
         string StaticFilesUrl { get; }
 
+        string LegacyImagesUrl { get;  }
+
         bool UseLocalStyleBackgroundSetting { get; }
 
     }
