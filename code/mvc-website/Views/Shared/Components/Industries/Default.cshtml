@@ -1,7 +1,7 @@
 ﻿@using CascadianAerialRobotics.Website.Models
 @model CommonComponentModel
 
-<section id="industries" data-image="@(Model.PubliclyExposedStringsProvider.StaticFilesUrl)/img/background-construction.webp" class="section-team bg-white-section background-image">
+<section id="industries" class="section-team bg-white-section background-image nowebpsupport" style="background-image:url('@(Model.PubliclyExposedStringsProvider.ModernImagesUrl)/background-construction.webp')" fallback-image="/background-construction.jpg" >
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-push-2">
@@ -16,7 +16,7 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                 <div class="item-team">
                     <div class="img-wrap">
-                        <img src="@(Model.PubliclyExposedStringsProvider.StaticFilesUrl)/img/industries-aec.webp" alt="img" class="img-responsive">
+                        <img src="@(Model.PubliclyExposedStringsProvider.ModernImagesUrl)/industries-aec.webp" alt="img" class="img-responsive">
                         @*<div class="mask-info"></div>*@
                     </div>
                     <h2>Architecture</h2><span>, Engineering and Construction</span>
@@ -27,7 +27,7 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                 <div class="item-team">
                     <div class="img-wrap">
-                        <img src="@(Model.PubliclyExposedStringsProvider.StaticFilesUrl)/img/industries-utilities.webp" alt="img" class="img-responsive">
+                        <img src="@(Model.PubliclyExposedStringsProvider.ModernImagesUrl)/industries-utilities.webp" alt="img" class="img-responsive">
                         @*<div class="mask-info"></div>*@
                     </div>
                     <h2>Utilities</h2><span> and Infrastructure</span>
@@ -38,7 +38,7 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                 <div class="item-team">
                     <div class="img-wrap">
-                        <img src="@(Model.PubliclyExposedStringsProvider.StaticFilesUrl)/img/industries-mining.webp" alt="img" class="img-responsive">
+                        <img src="@(Model.PubliclyExposedStringsProvider.ModernImagesUrl)/industries-mining.webp" alt="img" class="img-responsive">
                         @*<div class="mask-info"></div>*@
                     </div>
                     <h2>Mining</h2><span>and materials aggregation</span>
@@ -49,7 +49,7 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                 <div class="item-team">
                     <div class="img-wrap">
-                        <img src="@(Model.PubliclyExposedStringsProvider.StaticFilesUrl)/img/industries-mkt.webp" alt="img" class="img-responsive">
+                        <img src="@(Model.PubliclyExposedStringsProvider.ModernImagesUrl)/industries-mkt.webp" alt="img" class="img-responsive">
                         @*<div class="mask-info"></div>*@
                     </div>
                     <h2>Marketing</h2><span>and branding</span>

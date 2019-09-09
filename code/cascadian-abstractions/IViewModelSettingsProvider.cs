@@ -6,11 +6,11 @@ namespace Cascadian.Abstractions
 {
     public interface IViewModelSettingsProvider
     {
-        string StaticFilesUrl { get; }
+        string ModernImagesUrl { get; }
+
+        string StaticContentUrl { get;  }
 
         string LegacyImagesUrl { get;  }
-
-        bool UseLocalStyleBackgroundSetting { get; }
 
     }
 }

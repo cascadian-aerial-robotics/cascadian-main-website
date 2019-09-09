@@ -8,11 +8,11 @@
     </div>
     <div class="full-slider intro">
         <!-- Start slide-->
-        <div data-image="@(Model.PubliclyExposedStringsProvider.StaticFilesUrl)/img/mapping-background.webp" class="slide bg-mask background-image full-vh">
+        <div class="slide bg-mask background-image full-vh nowebpsupport" style="background-image:url('@(Model.PubliclyExposedStringsProvider.ModernImagesUrl)/mapping-background.webp')" fallback-image="/mapping-background.jpg" >
             <div class="container-slide vertical-align center">
                 <div class="container">
                     <div class="row">
-                        <img src="@(Model.PubliclyExposedStringsProvider.StaticFilesUrl)/img/logo-no-background.png" alt="Cascadian Aerial Robotics" height="277" width="784" style="display:inline; max-width:100%;height: auto;">
+                        <img src="@(Model.PubliclyExposedStringsProvider.ModernImagesUrl)/logo-no-background.png" alt="Cascadian Aerial Robotics" height="277" width="784" style="display:inline; max-width:100%;height: auto;">
 
                         <div class="col-md-8 col-md-push-2">
                             <span class="after"></span>
@@ -25,7 +25,7 @@
             </div>
             <div id="particles-js" class="canvas-background"></div>
         </div>
-        <div class="slide bg-mask full-vh nowebpsupport" style="background-image:url('@(Model.PubliclyExposedStringsProvider.StaticFilesUrl)/img/background-construction.webp')" fallback-image="/background-construction.jpg"  >
+        <div class="slide bg-mask full-vh nowebpsupport" style="background-position: 50% 0px; background-image:url('@(Model.PubliclyExposedStringsProvider.ModernImagesUrl)/background-construction.webp')" fallback-image="/background-construction.jpg"  >
             <div class="container-slide vertical-align center">
                 <div class="container">
                     <div class="row">
@@ -39,7 +39,7 @@
                 </div>
             </div>
         </div>
-        @*<div data-image="@(Model.PubliclyExposedStringsProvider.StaticFilesUrl)/img/background-construction.webp" class="slide bg-mask background-image full-vh">
+        @*<div data-image="@(Model.PubliclyExposedStringsProvider.ModernImagesUrl)/background-construction.webp" class="slide bg-mask background-image full-vh">
             <div class="container-slide vertical-align left small-text">
                 <div class="container">
                     <div class="row">
@@ -57,7 +57,7 @@
                 </div>
             </div>
         </div>*@
-        <div data-image="@(Model.PubliclyExposedStringsProvider.StaticFilesUrl)/img/background-droneoverwater.webp" class="slide bg-mask background-image full-vh">
+        <div class="slide bg-mask background-image full-vh nowebpsupport" style="background-image:url('@(Model.PubliclyExposedStringsProvider.ModernImagesUrl)/background-droneoverwater.webp')" fallback-image="/background-droneoverwater.jpg" >
             <div class="container-slide vertical-align center">
                 <div class="container">
                     <div class="row">
@@ -71,7 +71,7 @@
                 </div>
             </div>
         </div>
-        @*<div data-image="@(Model.PubliclyExposedStringsProvider.StaticFilesUrl)/img/404.webp" class="slide bg-mask background-image full-vh">
+        @*<div data-image="@(Model.PubliclyExposedStringsProvider.ModernImagesUrl)/404.webp" class="slide bg-mask background-image full-vh">
             <div class="container-slide vertical-align center">
                 <div class="container">
                     <div class="row">

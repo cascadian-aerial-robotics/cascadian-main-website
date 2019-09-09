@@ -6,20 +6,21 @@
 		Loader
 	-------------------------------------*/
     $(window).load(function () {
-        console.log('Entering cascadian.Load function');
-        if (window.webPSupport===false) {
+
+        if (window.webPSupport === false) {
+            var count = 0;
             $('.nowebpsupport').each(function () {
 
                 var fallBackImage = $(this).attr('fallback-image');
-                alert("Substituing with " + window.legacyImagesUrl + fallBackImage);
+                
 
                 if (fallBackImage) {
                     $(this).css('background-image', 'url(' + window.legacyImagesUrl + fallBackImage + ')');
+                    count++;
                 }
             });
+
+            console.log('A total of ' + count + 'substitutions where made.');
         }
-
-       
-
     });
 })(jQuery);

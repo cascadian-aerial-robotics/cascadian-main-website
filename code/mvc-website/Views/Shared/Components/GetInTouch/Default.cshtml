@@ -1,7 +1,7 @@
 ﻿@using CascadianAerialRobotics.Website.Models
 @model CommonComponentModel
 
-<section id="getintouch" data-image="@(Model.PubliclyExposedStringsProvider.StaticFilesUrl)/img/background-cascadia.webp" class="section-contact-with-us bg-dark-section background-image">
+<section id="getintouch" class="section-contact-with-us bg-dark-section background-image nowebpsupport" style="background-image:url('@(Model.PubliclyExposedStringsProvider.ModernImagesUrl)/background-cascadia.webp')" fallback-image="/background-cascadia.jpg" >
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-push-2">

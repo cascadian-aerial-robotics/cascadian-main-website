@@ -1,7 +1,7 @@
 ﻿@using CascadianAerialRobotics.Website.Models
 @model CommonComponentModel
 
-<section id="services" data-image="@(Model.PubliclyExposedStringsProvider.StaticFilesUrl)/img/background-nikehq.webp" class="services-section background-image bg-dark-section">
+<section id="services" class="services-section background-image bg-dark-section nowebpsupport" style="background-image:url('@(Model.PubliclyExposedStringsProvider.ModernImagesUrl)/background-nikehq.webp')" fallback-image="/background-nikehq.jpg" >
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-push-2">

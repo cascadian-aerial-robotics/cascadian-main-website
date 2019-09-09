@@ -10819,7 +10819,6 @@ jQuery.browser.android = /Android/i.test(nAgt), jQuery.browser.blackberry = /Bla
                     console.error.apply(console, t)
                 } else {
                     for (t = "", e = 0; e < arguments.length; e++) t += arguments[e].toString() + " ";
-                    alert(t)
                 }
             }
         }
