@@ -1,4 +1,6 @@
-﻿
+﻿@using CascadianAerialRobotics.Website.Models
+@model CommonComponentModel
+
 <style>
     .table-cities {
         display: table; /* Allow the centering to work */
@@ -16,7 +18,7 @@
         }
 </style>
 
-<section id="citiesserved" data-image="https://cascadian-aerial-robotics-cdn1.azureedge.net/img/background-mountrainier.webp" class="chooce-us-acc bg-white-section white-70 background-image" style="background-image: url(&quot;https://cascadian-aerial-robotics-cdn1.azureedge.net/img/background-mountrainier.webp&quot;);">
+<section id="citiesserved" class="chooce-us-acc bg-white-section white-70 background-image nowebpsupport" style="background-image:url('@(Model.PubliclyExposedStringsProvider.ModernImagesUrl)/background-mountrainier.webp')" fallback-image="/background-mountrainier.jpg" ">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
