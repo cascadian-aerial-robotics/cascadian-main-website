@@ -1,6 +1,7 @@
 ﻿@using CascadianAerialRobotics.Website.Models
 @model CommonComponentModel
 
+
 <!DOCTYPE html>
 <!--
     My Other Drone is a Modified Corellian YT-1300 Transport
@@ -31,11 +32,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     @*<meta property="og:title" content="Homepage">
-    <meta property="og:site_name" content="Cascadian Aerial Robotics LLC">
-    <meta property="og:url" content="https://www.cascadianaerialrobotics.com">
-    <meta property="og:description" content="Drone mapping, photogrammetry and GIS services in the Pacific Northwest">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="@(Model.PubliclyExposedStringsProvider.ModernImagesUrl)/open-graph-image.png">*@
+        <meta property="og:site_name" content="Cascadian Aerial Robotics LLC">
+        <meta property="og:url" content="https://www.cascadianaerialrobotics.com">
+        <meta property="og:description" content="Drone mapping, photogrammetry and GIS services in the Pacific Northwest">
+        <meta property="og:type" content="website">
+        <meta property="og:image" content="/open-graph-image.png">*@
     <!--Favicon-->
     <link rel="icon" href="@(Model.PubliclyExposedStringsProvider.ModernImagesUrl)/favicon/favicon.ico">
     <!--Libs css-->
@@ -58,7 +59,7 @@
 
         };
 
-        
+
             // check_webp_feature:
         //   'feature' can be one of 'lossy', 'lossless', 'alpha' or 'animation'.
         //   'callback(feature, result)' will be passed back the detection result (in an asynchronous way!)
@@ -85,6 +86,12 @@
 
 </head>
 <body class="dark-load">
+    @*<style>
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>*@
 
     @await Component.InvokeAsync("Header")
 
