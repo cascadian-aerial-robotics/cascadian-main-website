@@ -24,26 +24,66 @@
 <html lang="en" class="no-js">
 <head>
     <meta charset="utf-8">
-    <title>Privacy - Cascadian Aerial Robotics LLC</title>
-    <meta name="description" content="Drone mapping, photogrammetry and GIS in the Pacific Northwest">
+    <title>Privacy | Cascadian Aerial Robotics LLC</title>
+    <meta name="description" content="Privacy policy that regulates the website for Cascadian Aerial Robotics LLC.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta property="og:title" content="Homepage">
-    <meta property="og:site_name" content="Cascadian Aerial Robotics LLC">
-    <meta property="og:url" content="https://www.cascadianaerialrobotics.com">
-    <meta property="og:description" content="Drone mapping services in Washington State">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="@(Model.PubliclyExposedStringsProvider.ModernImagesUrl)/open-graph-image.png">
     <!--Favicon-->
-    <link rel="icon" href="@(Model.PubliclyExposedStringsProvider.ModernImagesUrl)/favicon/favicon.ico">
+    <link rel="icon" href="https://cascadian-aerial-robotics-cdn1.azureedge.net/img/favicon/favicon.ico">
     <!--Libs css-->
-    <link rel="stylesheet" href="@(Model.PubliclyExposedStringsProvider.ModernImagesUrl)/v1-0/css/libs.css">
+    <link rel="stylesheet" href="https://cascadian-aerial-robotics-cdn1.azureedge.net/v1-1/css/libs.css">
     <!--Main css-->
-    <link rel="stylesheet" href="@(Model.PubliclyExposedStringsProvider.ModernImagesUrl)/v1-0/css/main.css">
+    <link rel="stylesheet" href="https://cascadian-aerial-robotics-cdn1.azureedge.net/v1-1/css/main.css">
+
+    <!-- App Insights-->
+    <script type="text/javascript">
+
+        var appInsights = window.appInsights || function (a) {
+            function b(a) { c[a] = function () { var b = arguments; c.queue.push(function () { c[a].apply(c, b) }) } } var c = { config: a }, d = document, e = window; setTimeout(function () { var b = d.createElement("script"); b.src = a.url || "https://az416426.vo.msecnd.net/scripts/a/ai.0.js", d.getElementsByTagName("script")[0].parentNode.appendChild(b) }); try { c.cookie = d.cookie } catch (a) { } c.queue = []; for (var f = ["Event", "Exception", "Metric", "PageView", "Trace", "Dependency"]; f.length;)b("track" + f.pop()); if (b("setAuthenticatedUserContext"), b("clearAuthenticatedUserContext"), b("startTrackEvent"), b("stopTrackEvent"), b("startTrackPage"), b("stopTrackPage"), b("flush"), !a.disableExceptionTracking) { f = "onerror", b("_" + f); var g = e[f]; e[f] = function (a, b, d, e, h) { var i = g && g(a, b, d, e, h); return !0 !== i && c["_" + f](a, b, d, e, h), i } } return c
+        }({
+            instrumentationKey: '853b9efb-900d-4655-8c37-af1a39fb4cd4'
+        });
+
+        window.appInsights = appInsights, appInsights.queue && 0 === appInsights.queue.length && appInsights.trackPageView();
+
+    </script>
+    <!-- App Insights-->
+
+    <script>
+
+        function setVariable(feature, availability) {
+            window.webPSupport = availability;
+            if (availability === false) {
+                console.log('WebP does not seem to be available for this client. Switching to legacy formats.')
+                window.legacyImagesUrl = "https://cascadian-aerial-robotics-cdn1.azureedge.net/img/legacy";
+            }
+
+        };
 
 
+        // check_webp_feature:
+        //   'feature' can be one of 'lossy', 'lossless', 'alpha' or 'animation'.
+        //   'callback(feature, result)' will be passed back the detection result (in an asynchronous way!)
+        function check_webp_feature(feature, callback) {
+            var kTestImages = {
+                lossy: "UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA",
+                lossless: "UklGRhoAAABXRUJQVlA4TA0AAAAvAAAAEAcQERGIiP4HAA==",
+                alpha: "UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAwAAAARBxAR/Q9ERP8DAABWUDggGAAAABQBAJ0BKgEAAQAAAP4AAA3AAP7mtQAAAA==",
+                animation: "UklGRlIAAABXRUJQVlA4WAoAAAASAAAAAAAAAAAAQU5JTQYAAAD/////AABBTk1GJgAAAAAAAAAAAAAAAAAAAGQAAABWUDhMDQAAAC8AAAAQBxAREYiI/gcA"
+            };
+            var img = new Image();
+            img.onload = function () {
+                var result = (img.width > 0) && (img.height > 0);
+                callback(feature, result);
+            };
+            img.onerror = function () {
+                callback(feature, false);
+            };
+            img.src = "data:image/webp;base64," + kTestImages[feature];
+        };
 
-
+        check_webp_feature('lossy', setVariable);
+    </script>
 
 </head>
 <body class="dark-load">
@@ -51,7 +91,7 @@
 
     <header id="top-nav" class="top-nav page-header">
         <div class="container">
-            <a class="logo smooth-scroll" href="/"><img src="@(Model.PubliclyExposedStringsProvider.ModernImagesUrl)/cascadian-logo.png" alt="logo" class="logo-white"><img src="@(Model.PubliclyExposedStringsProvider.ModernImagesUrl)/cascadian-logo-dark.png" alt="logo" class="logo-dark"></a>
+            <a class="logo smooth-scroll" href="/"><img src="https://cascadian-aerial-robotics-cdn1.azureedge.net/img/cascadian-logo.png" alt="logo" class="logo-white"><img src="https://cascadian-aerial-robotics-cdn1.azureedge.net/img/cascadian-logo-dark.png" alt="logo" class="logo-dark"></a>
 
         </div>
     </header>
@@ -60,7 +100,8 @@
 
 
 
-    <section data-image="@(Model.PubliclyExposedStringsProvider.ModernImagesUrl)/background-nikehq.webp" id="top" class="display-page img-parallax bg-mask background-image" style="background-position: 50% 0px; background-image: url(&quot;@(Model.PubliclyExposedStringsProvider.ModernImagesUrl)/background-nikehq.webp&quot;);">
+
+    <section id="top" class="display-page img-parallax bg-mask background-image" style="background-position: 50% 0px; background-image:url('https://cascadian-aerial-robotics-cdn1.azureedge.net/img/background-nikehq.webp')" fallback-image="/background-nikehq.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -239,7 +280,7 @@
         </div>
     </section>
 
-    <section id="getintouch" data-image="@(Model.PubliclyExposedStringsProvider.ModernImagesUrl)/background-cascadia.webp" class="section-contact-with-us bg-dark-section background-image">
+    <section id="getintouch" class="section-contact-with-us bg-dark-section background-image nowebpsupport" style="background-image:url('https://cascadian-aerial-robotics-cdn1.azureedge.net/img/background-cascadia.webp')" fallback-image="/background-cascadia.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-push-2">
@@ -294,12 +335,15 @@
 
 
 
+
+
+
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
                     <div style="text-align:center">
-                        <img src="@(Model.PubliclyExposedStringsProvider.ModernImagesUrl)/cascadian-logo.png" alt="logo" class="logo-white" style="height:76px;width:233px;">
+                        <img src="https://cascadian-aerial-robotics-cdn1.azureedge.net/img/cascadian-logo.png" alt="logo" class="logo-white" style="height:76px;width:233px;">
                     </div>
                     <ul class="social-links">
                         <li><a href="https://www.linkedin.com/company/cascadian-aerial-robotics/" target="_blank" rel="noopener noreferrer" title="Cascadian Aerial Robotics LLC • LinkedIn company page"><i class="fa fa-linkedin"></i></a></li>
@@ -369,10 +413,10 @@
 
 
     <!--Libs-->
-    <script src="@(Model.PubliclyExposedStringsProvider.ModernImagesUrl)/v1-0/js/libs.js"></script>
+    <script src="https://cascadian-aerial-robotics-cdn1.azureedge.net/v1-1/js/libs.js"></script>
     <!--Use scripts-->
-    <script src="@(Model.PubliclyExposedStringsProvider.ModernImagesUrl)/v1-0/js/common.js"></script>
-
+    <script src="https://cascadian-aerial-robotics-cdn1.azureedge.net/v1-1/js/common.js"></script>
+    <script src="https://cascadian-aerial-robotics-cdn1.azureedge.net/v1-1/js/cascadian.js"></script>
 </body>
 
 </html>
