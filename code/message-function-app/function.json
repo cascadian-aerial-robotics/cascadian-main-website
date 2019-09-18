@@ -1,0 +1,17 @@
+{
+  "generatedBy": "Adrian",
+  "configurationSource": "attributes",
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "methods": [
+        "post"
+      ],
+      "authLevel": "function",
+      "name": "req"
+    }
+  ],
+  "disabled": false,
+  "scriptFile": "../bin/message-function-app.dll",
+  "entryPoint": "message_function_app.SendMessageFunction.Run"
+}
