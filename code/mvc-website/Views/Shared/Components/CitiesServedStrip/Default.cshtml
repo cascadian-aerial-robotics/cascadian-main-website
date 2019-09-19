@@ -1,0 +1,76 @@
+﻿@using CascadianAerialRobotics.Website.Models
+@model CommonComponentModel
+
+<style>
+    .table-cities {
+        display: table; /* Allow the centering to work */
+        margin: 0 auto;
+    }
+
+    ul#horizontal-list-cities {
+        min-width: 100px;
+        list-style: none;
+        padding-top: 20px;
+    }
+
+        ul#horizontal-list-cities li {
+            display: inline;
+        }
+</style>
+
+<section id="citiesserved" class="chooce-us-acc bg-white-section white-70 background-image nowebpsupport" style="background-image:url('@(Model.PubliclyExposedStringsProvider.ModernImagesUrl)/background-mountrainier.webp')" fallback-image="/background-mountrainier.jpg" ">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="heading-title small-heading text-left">
+                    <h2 class="animated fadeInDown" style="opacity: 1;">Cities we provide <span>our services</span> to</h2>
+                    <p class="animated fadeInUp" style="opacity: 1;">We are located in Redmond, Washington, but we operate in most of the Pacific Northwest. We are not yet authorized to work in British Columbia, but it's definitely on the roadmap. Out of state works are welcome, with travel expenses covered by the customer.</p>
+                    <p class="animated fadeInUp" style="opacity: 1;">Our legal correspondence address is located in Spokane.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div>
+                    <div class="table-cities">
+                        <ul id="horizontal-list-cities" class="list">
+                            <li class="list-group-item">Seattle</li>
+                            <li class="list-group-item">Bellevue</li>
+                            <li class="list-group-item">Kent</li>
+                            <li class="list-group-item">Renton</li>
+                            <li class="list-group-item">Federal Way</li>
+                            <li class="list-group-item">Shoreline</li>
+                            <li class="list-group-item">Kirkland</li>
+                            <li class="list-group-item">Auburn</li>
+                            <li class="list-group-item">Redmond</li>
+                            <li class="list-group-item">Sammamish</li>
+                            <li class="list-group-item">Burien</li>
+                            <li class="list-group-item">Bothell</li>
+                            <li class="list-group-item">Issaquah</li>
+                            <li class="list-group-item">Des Moines</li>
+                            <li class="list-group-item">Mill Creek</li>
+                            <li class="list-group-item">Everett</li>
+                            <li class="list-group-item">Marysville</li>
+                            <li class="list-group-item">Edmonds</li>
+                            <li class="list-group-item">Everett</li>
+                            <li class="list-group-item">Marysville</li>
+                            <li class="list-group-item">Edmonds</li>
+                            <li class="list-group-item">Lynnwood</li>
+                            <li class="list-group-item">Lake Stevens</li>
+                            <li class="list-group-item">Mill Creek</li>
+                            <li class="list-group-item">Mukilteo</li>
+                            <li class="list-group-item">Arlington</li>
+                            <li class="list-group-item">Monroe</li>
+                            <li class="list-group-item">Tacoma</li>
+                            <li class="list-group-item">Bellingham</li>
+                            <li class="list-group-item">Lakewood</li>
+                            <li class="list-group-item">Olympia</li>
+                            <li class="list-group-item">Lacey</li>
+                            <li class="list-group-item">Puyallup</li>
+                            <li class="list-group-item">Bremerton</li>
+                            <li class="list-group-item">Mount Vernon</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

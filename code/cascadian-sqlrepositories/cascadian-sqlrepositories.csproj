@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <RootNamespace>Cascadian.Repositories.Sql</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="1.0.19221.1-Preview" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\submodules\grump\src\grump.abstractions\grump.abstractions.csproj" />
+    <ProjectReference Include="..\..\submodules\grump\src\grump.data\grump.data.csproj" />
+    <ProjectReference Include="..\..\submodules\grump\src\grump.sql\grump.sql.csproj" />
+    <ProjectReference Include="..\cascadian-abstractions\cascadian-abstractions.csproj" />
+  </ItemGroup>
+
+</Project>

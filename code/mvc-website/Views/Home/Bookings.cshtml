@@ -1,0 +1,31 @@
+﻿@using CascadianAerialRobotics.Website.Models
+@model CommonComponentModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="top" class="display-page img-parallax bg-mask background-image nowebpsupport" style="background-position: 50% 0px; background-image:url('@(Model.PubliclyExposedStringsProvider.ModernImagesUrl)/background-nikehq.webp')" fallback-image="/background-nikehq.jpg" >
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="content">
+                    <!-- heading title-->
+                    <h1>Book an appointment</h1>
+                    <!-- horizontal line--><span class="horizontal-line"></span><span></span>
+                    <!-- description slider-->
+                    <div class="description">
+                        <p>Take the first step to success and schedule a meeting with us.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@*<section class="contact-form">*@
+<!-- Calendly inline widget begin -->
+<div class="calendly-inline-widget" data-url="https://calendly.com/cascadian-aerial-robotics?hide_landing_page_details=1" style="min-width:320px;height:930px;"></div>
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
+<!-- Calendly inline widget end -->
+@*</section>*@
+
