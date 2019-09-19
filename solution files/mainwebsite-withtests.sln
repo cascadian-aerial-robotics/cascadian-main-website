@@ -39,9 +39,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "businessservices", "busines
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dependencyprofile-developmentlocal", "..\code\dependencyprofile-developmentlocal\dependencyprofile-developmentlocal.csproj", "{44F8B4C9-2AB1-4C70-AD0C-917095FC410A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "grump.sql", "..\submodules\grump\src\grump.sql\grump.sql.csproj", "{9844E60B-08B4-484C-86F1-7C55A84191DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "grump.sql", "..\submodules\grump\src\grump.sql\grump.sql.csproj", "{9844E60B-08B4-484C-86F1-7C55A84191DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "grump.data", "..\submodules\grump\src\grump.data\grump.data.csproj", "{15D721EE-9866-476A-94D1-885BDB72E4AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "grump.data", "..\submodules\grump\src\grump.data\grump.data.csproj", "{15D721EE-9866-476A-94D1-885BDB72E4AF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dependencyprofile-production", "..\code\dependencyprofile-production\dependencyprofile-production.csproj", "{9A283F2A-0072-4AE6-A751-A3549C09D291}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "message-function-app", "..\code\message-function-app\message-function-app.csproj", "{1FAF6946-8CCF-4D34-96B6-2B4367099BE4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -109,6 +113,14 @@ Global
 		{15D721EE-9866-476A-94D1-885BDB72E4AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15D721EE-9866-476A-94D1-885BDB72E4AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15D721EE-9866-476A-94D1-885BDB72E4AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A283F2A-0072-4AE6-A751-A3549C09D291}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A283F2A-0072-4AE6-A751-A3549C09D291}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A283F2A-0072-4AE6-A751-A3549C09D291}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A283F2A-0072-4AE6-A751-A3549C09D291}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FAF6946-8CCF-4D34-96B6-2B4367099BE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FAF6946-8CCF-4D34-96B6-2B4367099BE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FAF6946-8CCF-4D34-96B6-2B4367099BE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FAF6946-8CCF-4D34-96B6-2B4367099BE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -129,6 +141,7 @@ Global
 		{44F8B4C9-2AB1-4C70-AD0C-917095FC410A} = {3C0C1DAE-432D-4ABC-85A4-9D811823608E}
 		{9844E60B-08B4-484C-86F1-7C55A84191DD} = {A2992F44-18BF-431A-82CF-571CB92B87FB}
 		{15D721EE-9866-476A-94D1-885BDB72E4AF} = {A2992F44-18BF-431A-82CF-571CB92B87FB}
+		{9A283F2A-0072-4AE6-A751-A3549C09D291} = {3C0C1DAE-432D-4ABC-85A4-9D811823608E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C2CF4EB5-89F5-498D-9F1E-C2DEE47994CF}

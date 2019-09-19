@@ -1,4 +1,7 @@
-﻿<section id="services" data-image="img/background-nikehq.jpg" class="services-section background-image bg-dark-section">
+﻿@using CascadianAerialRobotics.Website.Models
+@model CommonComponentModel
+
+<section id="services" class="services-section background-image bg-dark-section nowebpsupport" style="background-image:url('@(Model.PubliclyExposedStringsProvider.ModernImagesUrl)/background-nikehq.webp')" fallback-image="/background-nikehq.jpg" >
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-push-2">
@@ -6,7 +9,7 @@
                     <h2>Our <span>services</span></h2>
                     <p>
                         While we provide the mentioned services, we are not limited to. We are passionate about problem solving and we are happy to hear your specific needs and we are always developing new products.<br />
-                        <span class="link-full">To learn more about upcoming and under development services <a href="">Read here<i aria-hidden="true" class="fa fa-angle-right"></i></a></span>
+                        @*<span class="link-full">To learn more about upcoming and under development services <a href="">Read here<i aria-hidden="true" class="fa fa-angle-right"></i></a></span>*@
                     </p>
                 </div>
             </div>
@@ -162,7 +165,7 @@
             </div>
             <div class="col-md-12">
                 <p>Please note that while we can assist in daytime wildlife observation and tracking <span style="color:orangered">WE DO NOT PROVIDE ASSISTANCE FOR HUNTING</span> based on ethical grounds.</p>
-                <div class="link-full"><a href="">View all services<i aria-hidden="true" class="fa fa-angle-right"></i></a></div>
+                @*<div class="link-full"><a href="">View all services<i aria-hidden="true" class="fa fa-angle-right"></i></a></div>*@
             </div>
         </div>
     </div>

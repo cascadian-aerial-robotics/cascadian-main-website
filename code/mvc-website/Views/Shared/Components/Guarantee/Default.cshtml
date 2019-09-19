@@ -1,4 +1,7 @@
-﻿<section id="ourguarantee" data-image="img/background-cascadia.jpg" class="chooce-us-acc bg-dark-section background-image" style="background-image: url(&quot;img/background-cascadia.jpg&quot;);">
+﻿@using CascadianAerialRobotics.Website.Models
+@model CommonComponentModel
+
+<section id="ourguarantee" class="chooce-us-acc bg-dark-section background-image nowebpsupport" style="background-image:url('@(Model.PubliclyExposedStringsProvider.ModernImagesUrl)/background-cascadia.webp')" fallback-image="/background-cascadia.jpg" ">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
@@ -11,7 +14,7 @@
 
                     </p>
                     <p class="animated fadeInUp" style="opacity: 1;">
-                        That's right. You will not sign anything until you are 100&#37; sure you will get the results you are after, and at a price that it's coherent to the value you are getting in return.
+                        That's right. You will not sign anything until you are 100&#37; sure you will get the results you are after, with the accuracy needed, and at a price that it's coherent to the value you are getting in return.
                     </p>
                     <p class="animated fadeInUp" style="opacity: 1;">Here is a brief rundown of how we are going to work:</p>
                 </div>
@@ -29,8 +32,10 @@
                     <!--tab-->
                     <h3 class="ui-accordion-header ui-corner-top ui-accordion-header-collapsed ui-corner-all ui-state-default ui-accordion-icons" role="tab" id="ui-id-3" aria-controls="ui-id-4" aria-selected="false" aria-expanded="false" tabindex="-1"><span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span> <i class="fa fa-space-shuttle"></i>Free first site visit</h3>
                     <div class="ui-accordion-content ui-corner-bottom ui-helper-reset ui-widget-content" id="ui-id-4" aria-labelledby="ui-id-3" role="tabpanel" aria-hidden="true" style="display: none;">
-                        <p>After jointly reviewing opportunities, situation, risks and mitgations, we proceed to know your site better and maybe do a couple test flights if the operation can be done safely. 
-                            We then take the data and come back to our office for processing. This step may really take a couple or more visits. Still free of charge if opex is reasonable.</p>
+                        <p>
+                            After jointly reviewing opportunities, situation, risks and mitgations, we proceed to know your site better and maybe do a couple test flights if the operation can be done safely.
+                            We then take the data and come back to our office for processing. This step may really take a couple or more visits. Still free of charge if opex is reasonable.
+                        </p>
                     </div>
                     <!--tab-->
                     <h3 class="ui-accordion-header ui-corner-top ui-accordion-header-collapsed ui-corner-all ui-state-default ui-accordion-icons" role="tab" id="ui-id-5" aria-controls="ui-id-6" aria-selected="false" aria-expanded="false" tabindex="-1"><span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span><i class="fa fa-check-square-o"></i>You review the deliverables</h3>

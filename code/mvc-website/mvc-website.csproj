@@ -7,17 +7,27 @@
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="wwwroot\css\**" />
+    <Compile Remove="wwwroot\industries\**" />
+    <Content Remove="wwwroot\css\**" />
+    <Content Remove="wwwroot\industries\**" />
+    <EmbeddedResource Remove="wwwroot\css\**" />
+    <EmbeddedResource Remove="wwwroot\industries\**" />
+    <None Remove="wwwroot\css\**" />
+    <None Remove="wwwroot\industries\**" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.7.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <Folder Include="wwwroot\css\" />
   </ItemGroup>
 
 
@@ -27,6 +37,7 @@
     <ProjectReference Include="..\..\submodules\grump\src\grump.core\grump.core.csproj" />
     <ProjectReference Include="..\cascadian-website-abstractions\cascadian-website-abstractions.csproj" />
     <ProjectReference Include="..\dependencyprofile-developmentlocal\dependencyprofile-developmentlocal.csproj" />
+    <ProjectReference Include="..\dependencyprofile-production\dependencyprofile-production.csproj" />
   </ItemGroup>
 
 </Project>

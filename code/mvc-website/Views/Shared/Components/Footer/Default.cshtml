@@ -1,47 +1,53 @@
-﻿<footer>
+﻿
+@using CascadianAerialRobotics.Website.Models
+@model CommonComponentModel
+
+
+<footer>
     <div class="container">
         <div class="row">
             <div class="col-md-3">
                 <div style="text-align:center">
-                    <img src="/img/cascadian-logo.png" alt="logo" class="logo-white" style="height:76px;width:233px;">
+                    <img src="/cascadian-logo.png" alt="logo" class="logo-white" style="height:76px;width:233px;">
                 </div>
-                <p>We are a creative agency with a passion for design & developing beautiful creations.</p>
+                @*<p>We are drone technology enthusiasts that strive to deliver not only perceived but measurable value, and we do it with the highest safety standards and compliance.</p>*@
                 <ul class="social-links">
-                    <li><a href="https://www.instagram.com/cascadianaerialrobotics/" target="_blank" title="Cascadian Aerial Robotics LLC (&#64;cascadianaerialrobotics) • Instagram photos and videos"><i class="fa fa-instagram"></i></a></li>
-                    <li><a href="https://www.instagram.com/aec_cascadianaerialrobotics/" target="_blank" title="AEC&#64;Cascadian Aerial Robotics (&#64;aec_cascadianaerialrobotics) • Instagram photos and videos"><i class="fa fa-instagram"></i></a></li>
-                    <li><a href="https://www.facebook.com/cascadianaerialrobotics/" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                    @*<li><a href="https://www.youtube.com/channel/UCkhKMfALY9Fb-frdYu4N3uw" target="_blank"><i class="fa fa-youtube-play"></i></a></li>*@
+                    <li><a href="https://www.linkedin.com/company/cascadian-aerial-robotics/" target="_blank" rel="noopener noreferrer" title="Cascadian Aerial Robotics LLC • LinkedIn company page"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="https://www.youtube.com/channel/UCkhKMfALY9Fb-frdYu4N3uw/" target="_blank" rel="noopener noreferrer" title="Cascadian Aerial Robotics LLC • Youtube channel"><i class="fa fa-youtube-play"></i></a></li>
+                    <li><a href="https://www.facebook.com/cascadianaerialrobotics/" target="_blank" rel="noopener noreferrer" title="Cascadian Aerial Robotics LLC • Facebook page"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://www.instagram.com/cascadianaerialrobotics/" target="_blank" rel="noopener noreferrer" title="Cascadian Aerial Robotics Photography (&#64;cascadianaerialrobotics) • Instagram photo profile"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="https://www.instagram.com/cascadianaerialroboticsllc/" target="_blank" rel="noopener noreferrer" title="Cascadian Aerial Robotics LLC (&#64;cascadianaerialroboticsllc) • Instagram company profile"><i class="fa fa-instagram"></i></a></li>
+
                 </ul>
                 <ul class="social-links">
-                    <li><a href="#"><i class="fa fa-github"></i></a></li>
-                    <li><a href="https://cascadian-aerial.slack.com/join/shared_invite/enQtNzAzNDA5MDY3NzE1LTBjNmZhYTAxNGU5NDhlNzE0NDgxZWVlYjZjNmFhZWEzYjRlMzdhMDJkMTg5ZmJhMDk3ZjJkZjIyNGNmNmEyNzY" target="_blank"><i class="fa fa-slack"></i></a></li>
-                    <li><a href="#" target="_blank"><i class="fa-facebook-official"></i></a></li>
-                    <li><a href="#"><i class="fa fa-slideshare"></i></a></li>
-                    @*<li><a href="#" target="_blank"><i class="fa fa-calendar"></i></a></li>*@
+                    <li><a href="https://twitter.com/cascadianaerial/" target="_blank" rel="noopener noreferrer" title="Cascadian Aerial Robotics LLC • Twitter handle"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="https://github.com/cascadian-aerial-robotics/" target="_blank" rel="noopener noreferrer" title="Cascadian Aerial Robotics LLC • Github organization"><i class="fa fa-github"></i></a></li>
+                    <li><a href="https://cascadian-aerial.slack.com/join/shared_invite/enQtNzAzNDA5MDY3NzE1LTBjNmZhYTAxNGU5NDhlNzE0NDgxZWVlYjZjNmFhZWEzYjRlMzdhMDJkMTg5ZmJhMDk3ZjJkZjIyNGNmNmEyNzY" target="_blank" rel="noopener noreferrer" title="Cascadian Aerial Robotics • Slack workspace"><i class="fa fa-slack"></i></a></li>
+                    <li><a href="https://keybase.io/cascadianaerial/" target="_blank" rel="noopener noreferrer" title="Cascadian Aerial Robotics LLC • Public keys"><i class="fa fa-key"></i></a></li>
+                    <li><a href="https://www.slideshare.net/cascadianaerialrobotics/" target="_blank" rel="noopener noreferrer" title="Cascadian Aerial Robotics LLC • Slideshare"><i class="fa fa-slideshare"></i></a></li>
                 </ul>
             </div>
             <div class="col-md-3">
-                <div class="links">
-                    <h5>Addtional links</h5>
-                    <ul class="list">
-                        <li><a href="#">More links</a></li>
-                        <li><a href="#">More links</a></li>
-                        <li><a href="#">More links</a></li>
-                        <li><a href="#">More links</a></li>
-                        <li><a href="#">More links</a></li>
-                    </ul>
-                </div>
+                @*<div class="links">
+                        <h5>Addtional links</h5>
+                        <ul class="list">
+                            <li><a href="#">More links</a></li>
+                            <li><a href="#">More links</a></li>
+                            <li><a href="#">More links</a></li>
+                            <li><a href="#">More links</a></li>
+                            <li><a href="#">More links</a></li>
+                        </ul>
+                    </div>*@
             </div>
             <div class="col-md-3">
                 <div class="links">
-                    <h5>Pages</h5>
+                    <h5>About</h5>
                     <ul class="list">
-                        <li><a href="about/">About</a></li>
-                        <li><a href="blog/">Blog</a></li>
-                        <li><a href="services/">Services</a></li>
-                        <li><a href="portfolio/">Portfolio page</a></li>
-                        <li><a href="privacy/">Privacy</a></li>
+                        <li><a asp-action="index" asp-controller="home" asp-fragment="services">Our services</a></li>
+                        @*<li><a asp-action="faq" asp-controller="home">FAQs</a></li>*@
+                        <li><a asp-action="index" asp-controller="home" asp-fragment="getintouch">Contacting us</a></li>
+                        <li><a asp-action="bookings" asp-controller="home">Bookings</a></li>
+                        <li><a asp-action="privacy" asp-controller="home">Privacy</a></li>
                     </ul>
                 </div>
             </div>
@@ -53,7 +59,7 @@
                         Redmond, Washington<br>
                         <a href="mailto:contact@cascadianaerialrobotics.com" style="font-size:14px;color:white">contact@cascadianaerialrobotics.com</a><br>
                         (209)643-1193<br />
-                        <a href="https://cascadian-aerial.slack.com/" style="font-size:14px;color:white">cascadian-aerial.slack.com</a>
+                        <a href="https://cascadian-aerial.slack.com/join/shared_invite/enQtNzAzNDA5MDY3NzE1LTBjNmZhYTAxNGU5NDhlNzE0NDgxZWVlYjZjNmFhZWEzYjRlMzdhMDJkMTg5ZmJhMDk3ZjJkZjIyNGNmNmEyNzY" style="font-size:14px;color:white">cascadian-aerial.slack.com</a>
                     </p>
                 </div>
             </div>
@@ -63,14 +69,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <p>© 2019 All Rights Reserved. Cascadian Aerial Robotics</p>
+                    <p>© 2019 All Rights Reserved. Cascadian Aerial Robotics LLC - Page by <a href="https://github.com/grumpydev-net" target="_blank" rel="noopener noreferrer">GrumpyDev</a></p>
                     <ul class="footer-menu">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="#about" class="smooth-scroll">About</a></li>
-                        <li><a href="#services" class="smooth-scroll">Services</a></li>
-                        <li><a href="#portfolio" class="smooth-scroll">Our works</a></li>
-                        <li><a href="#skills" class="smooth-scroll">Skills</a></li>
-                        <li> <a href="#contact" class="smooth-scroll">Contact</a></li>
+                        <li><a asp-action="index" asp-controller="home">Home</a></li>
+                        <li><a asp-action="index" asp-controller="home" asp-fragment="services">Services</a></li>
+                        <li><a asp-action="index" asp-controller="home" asp-fragment="getintouch">Contact us</a></li>
+                        <li><a asp-action="bookings" asp-controller="home">Bookings</a></li>
+                        @*<li><a href="#services" class="smooth-scroll">Services</a></li>
+                            <li><a href="#portfolio" class="smooth-scroll">Our works</a></li>
+                            <li><a href="#skills" class="smooth-scroll">Skills</a></li>
+                            <li> <a href="#contact" class="smooth-scroll">Contact</a></li>*@
                     </ul>
                 </div>
             </div>
@@ -80,6 +88,6 @@
 
 <div class="top icon-down toTopFromBottom">
     <a href="#top" class="smooth-scroll">
-    <i class="pe-7s-angle-up"></i>
+        <i class="pe-7s-angle-up"></i>
     </a>
 </div>

@@ -1,62 +1,65 @@
-﻿<section id="whychooseus" class="section-choose-us">
+﻿@using CascadianAerialRobotics.Website.Models
+@model CommonComponentModel
+
+<section id="whychooseus" class="section-choose-us">
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-push-2">
                 <div class="heading-title center">
                     <h3 class="small-desd"><span>Still </span>not convinced?</h3>
                     <h2>Why choosing <span>us?</span></h2>
-                    
+
                 </div>
             </div>
         </div>
         <div class="row">
-                <!--Start item-->
-                <div class="col-md-4">
-                    <div class="item-about item-choose">
-                        <div class="content">
-                            <h3>You have seen what we can do. What about how we do it?</h3>
-                            <p>You can find a wealth of information about our services and deliverables in this site. But most of the times, what really makes the difference is the values behind our work&#58 </p>
-                        </div>
-                    </div>
-                </div>
-                <!--Start item-->
-                <div class="col-md-4">
-                    <div class="item-about item-choose">
-                        <div class="icon">
-                            <i class="pe-7s-shield"></i>
-                            <div class="bg-icon"><i class="pe-7s-shield"></i></div>
-                        </div>
-                        <div class="content">
-                            <h3>We take <span>safety </span>seriously</h3>
-                            <p>
-                                Our highest priority is conducting our operations with the highest security standards to <strong>keep you</strong>, your assets, bystanders and general aviaton <strong>safe</strong>.
-                                We meet and exceed federal regulations using our deep technical knowledge about our equipment and its environment.
-                                Even in the unlikely case of an incident, all our operations are <strong>insured for a minimum of &#36;1,000,000 USD</strong> .
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!--Start item-->
-                <div class="col-md-4">
-                    <div class="item-about item-choose">
-                        <div class="icon">
-                            <i class="pe-7s-medal"></i>
-                            <div class="bg-icon"><i class="pe-7s-medal"></i></div>
-                        </div>
-                        <div class="content">
-                            <h3>We are <span>compliant</span></h3>
-                            <p>
-                                Drones share the National Airspace with manned aviation. For this reason, the Federal Aviation Administration a.k.a the <strong>FAA strictly governs UAV operations</strong> through the
-                                <a href="https://www.ecfr.gov/cgi-bin/text-idx?mc=true&node=pt14.2.107&rgn=div5" style="color:#c69c6d;" target="_blank">14 CFR part 107</a> set of regulations.
-                                <strong>We take these rules very seriously</strong> and we fully abide by them. Either by observing operational limitations, obtaining
-                                <a href="https://www.faa.gov/uas/commercial_operators/part_107_waivers/" target="_blank" style="color:#c69c6d;">waivers</a> or
-                                <a href="https://www.faa.gov/uas/programs_partnerships/data_exchange/" target="_blank" style="color:#c69c6d;">LAANC</a> authorizations,
-                                you can rest assured, <strong>your operation is in compliance</strong>.
-                            </p>
-                        </div>
+            <!--Start item-->
+            <div class="col-md-4">
+                <div class="item-about item-choose">
+                    <div class="content">
+                        <h3>You have seen what we can do. What about how we do it?</h3>
+                        <p>You can find a wealth of information about our services and deliverables in this site. But most of the times, what really makes the difference is the values behind our work&#58 </p>
                     </div>
                 </div>
             </div>
+            <!--Start item-->
+            <div class="col-md-4">
+                <div class="item-about item-choose">
+                    <div class="icon">
+                        <i class="pe-7s-shield"></i>
+                        <div class="bg-icon"><i class="pe-7s-shield"></i></div>
+                    </div>
+                    <div class="content">
+                        <h3>We take <span>safety </span>seriously</h3>
+                        <p>
+                            Our highest priority is conducting our operations with the highest security standards to <strong>keep you</strong>, your assets, bystanders and general aviaton <strong>safe</strong>.
+                            We meet and exceed federal regulations using our deep technical knowledge about our equipment and its environment.
+                            Even in the unlikely case of an incident, all our operations are <strong>insured for a minimum of &#36;1,000,000 USD</strong> .
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--Start item-->
+            <div class="col-md-4">
+                <div class="item-about item-choose">
+                    <div class="icon">
+                        <i class="pe-7s-medal"></i>
+                        <div class="bg-icon"><i class="pe-7s-medal"></i></div>
+                    </div>
+                    <div class="content">
+                        <h3>We are <span>compliant</span></h3>
+                        <p>
+                            Drones share the National Airspace with manned aviation. For this reason, the Federal Aviation Administration a.k.a the <strong>FAA strictly governs UAV operations</strong> through the
+                            <a href="https://www.ecfr.gov/cgi-bin/text-idx?mc=true&node=pt14.2.107&rgn=div5" style="color:#c69c6d;" target="_blank" rel="noopener noreferrer">14 CFR part 107</a> set of regulations.
+                            <strong>We take these rules very seriously</strong> and we fully abide by them. Either by observing operational limitations, obtaining
+                            <a href="https://www.faa.gov/uas/commercial_operators/part_107_waivers/" target="_blank" rel="noopener noreferrer" style="color:#c69c6d;">waivers</a> or
+                            <a href="https://www.faa.gov/uas/programs_partnerships/data_exchange/" target="_blank" rel="noopener noreferrer" style="color:#c69c6d;">LAANC</a> authorizations,
+                            you can rest assured, <strong>your operation is in compliance</strong>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <!--Start item-->
             <div class="col-md-4">
@@ -112,45 +115,45 @@
             </div>
         </div>
         @*<div class="row">
-            <!--Start item-->
-            <div class="col-md-4">
-                <div class="item-about item-choose">
-                    <div class="icon">
-                        <i class="pe-7s-display1"></i>
-                        <div class="bg-icon"><i class="pe-7s-display1"></i></div>
-                    </div>
-                    <div class="content">
-                        <h3>We produce <span>actionable</span> information</h3>
-                        <p>In concordance with our <b>Result orientation</b> value, we strive to produce not just data, but actionable information. We will work with you to conclude in the right interpretacion of the data. </p>
-                    </div>
-                </div>
-            </div>
-            <!--Start item-->
-            <div class="col-md-4">
-                <div class="item-about item-choose">
-                    <div class="icon">
-                        <i class="pe-7s-link"></i>
-                        <div class="bg-icon"><i class="pe-7s-link"></i></div>
-                    </div>
-                    <div class="content">
-                        <h3>Seo <span>optimized</span></h3>
-                        <p>Praesent sodales, quam vitae gravida interdum, ex mi bibendum enim, sit amet tristique mi quam vel odio. Donec non nunc condimentum.     </p>
+                <!--Start item-->
+                <div class="col-md-4">
+                    <div class="item-about item-choose">
+                        <div class="icon">
+                            <i class="pe-7s-display1"></i>
+                            <div class="bg-icon"><i class="pe-7s-display1"></i></div>
+                        </div>
+                        <div class="content">
+                            <h3>We produce <span>actionable</span> information</h3>
+                            <p>In concordance with our <b>Result orientation</b> value, we strive to produce not just data, but actionable information. We will work with you to conclude in the right interpretacion of the data. </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!--Start item-->
-            <div class="col-md-4">
-                <div class="item-about item-choose">
-                    <div class="icon">
-                        <i class="pe-7s-paint"></i>
-                        <div class="bg-icon"><i class="pe-7s-paint"></i></div>
-                    </div>
-                    <div class="content">
-                        <h3>Easy <span>customized</span></h3>
-                        <p>Praesent sodales, quam vitae gravida interdum, ex mi bibendum enim, sit amet tristique mi quam vel odio. Donec non nunc condimentum.</p>
+                <!--Start item-->
+                <div class="col-md-4">
+                    <div class="item-about item-choose">
+                        <div class="icon">
+                            <i class="pe-7s-link"></i>
+                            <div class="bg-icon"><i class="pe-7s-link"></i></div>
+                        </div>
+                        <div class="content">
+                            <h3>Seo <span>optimized</span></h3>
+                            <p>Praesent sodales, quam vitae gravida interdum, ex mi bibendum enim, sit amet tristique mi quam vel odio. Donec non nunc condimentum.     </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>*@
+                <!--Start item-->
+                <div class="col-md-4">
+                    <div class="item-about item-choose">
+                        <div class="icon">
+                            <i class="pe-7s-paint"></i>
+                            <div class="bg-icon"><i class="pe-7s-paint"></i></div>
+                        </div>
+                        <div class="content">
+                            <h3>Easy <span>customized</span></h3>
+                            <p>Praesent sodales, quam vitae gravida interdum, ex mi bibendum enim, sit amet tristique mi quam vel odio. Donec non nunc condimentum.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
     </div>
 </section>

@@ -1,4 +1,6 @@
-﻿
+﻿@using CascadianAerialRobotics.Website.Models
+@model CommonComponentModel
+
 <style>
     .table-cities {
         display: table; /* Allow the centering to work */
@@ -16,14 +18,14 @@
         }
 </style>
 
-<section id="citiesserved" data-image="img/background-mountrainier.jpg" class="chooce-us-acc bg-white-section white-70 background-image" style="background-image: url(&quot;img/background-mountrainier.jpg&quot;);">
+<section id="citiesserved" class="chooce-us-acc bg-white-section white-70 background-image nowebpsupport" style="background-image:url('@(Model.PubliclyExposedStringsProvider.ModernImagesUrl)/background-mountrainier.webp')" fallback-image="/background-mountrainier.jpg" ">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
                 <div class="heading-title small-heading text-left">
                     <h2 class="animated fadeInDown" style="opacity: 1;">Cities we provide <span>our services</span> to</h2>
-                    <p class="animated fadeInUp" style="opacity: 1;">We are located in Redmond, with our legal address in Spokane, Washington. But we operate in most of the Pacific Northwest. We are <strong>NOT</strong> authorized to work in British Columbia yet, but it is in the roadmap.</p>
-                    <p class="animated fadeInUp" style="opacity: 1;">Out of state works are welcome with travel expenses covered by the customer.</p>
+                    <p class="animated fadeInUp" style="opacity: 1;">We are located in Redmond, Washington, but we operate in most of the Pacific Northwest. We are not yet authorized to work in British Columbia, but it's definitely on the roadmap. Out of state works are welcome, with travel expenses covered by the customer.</p>
+                    <p class="animated fadeInUp" style="opacity: 1;">Our legal correspondence address is located in Spokane.</p>
                 </div>
             </div>
             <div class="col-md-6">

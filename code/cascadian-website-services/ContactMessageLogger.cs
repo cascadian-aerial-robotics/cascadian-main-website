@@ -50,7 +50,7 @@ namespace Cascadian.Website.Services
                 contactInfo = person.ContactInfo.First(x => x.Value.ToLowerInvariant() == contactEmail.ToLowerInvariant() || x.Type.Name.ToLowerInvariant() == "email");
             }
 
-            var contactMessage = new ContactMessage() { ContactInfo = contactInfo, Person = person, Message = message, Origin = contactOrigin };
+            var contactMessage = new Entities.ContactMessage() { ContactInfo = contactInfo, Person = person, Message = message, Origin = contactOrigin };
 
             await ContactMessageRepository.Add(contactMessage);
 
