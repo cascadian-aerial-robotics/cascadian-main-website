@@ -108,7 +108,7 @@ namespace mvc_website
 
             app.UseDeveloperExceptionPage();
             app.UseHttpsRedirection();
-            app.UseDefaultFiles(); //Uncomment to use precompiled versions of static pages.
+            //app.UseDefaultFiles(); //Uncomment to use precompiled versions of static pages.
             app.UseStaticFiles();
 
             app.UseCookiePolicy();
