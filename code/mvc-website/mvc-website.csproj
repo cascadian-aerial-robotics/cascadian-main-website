@@ -40,4 +40,9 @@
     <ProjectReference Include="..\dependencyprofile-production\dependencyprofile-production.csproj" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
 </Project>

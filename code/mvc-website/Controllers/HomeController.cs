@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using mvc_website.Models;
+using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
@@ -19,20 +20,49 @@ namespace CascadianAerialRobotics.Website.Controllers
 
         }
 
+        public bool ShouldRedirectToStaticPage => Configuration.GetValue<bool>("Behavior:redirecttostatic");
+
         public IActionResult Index()
         {
-            var pageinfo = new PageMetadataModel
+            try
             {
-                Page = "Cascadian Aerial Robotics LLC - Drone mapping, photogrammetry and GIS services in the Pacific Northwest",
-                Description = "Cascadian Aerial Robotics LLC offers drone and mapping services to Washington State and the Pacific Northwest in general."
-            };
+                // If configured to redirect to static (most likely prod)
+                if (ShouldRedirectToStaticPage)
+                {
+                    Task.Run(() => Logger.LogWarning(new EventId(1, "Request for root received."), "Request for root received."));
+                    return this.RedirectPermanent("https://www.cascadianaerialrobotics.com");
+                }
+                
+                // Proceed normally 
+                var pageinfo = new PageMetadataModel
+                {
+                    Page = "Cascadian Aerial Robotics LLC - Drone mapping, photogrammetry and GIS services in the Pacific Northwest",
+                    Description = "Cascadian Aerial Robotics LLC offers drone and mapping services to Washington State and the Pacific Northwest in general."
+                };
 
-            return View(new CommonComponentModel { PubliclyExposedStringsProvider = this.PubliclyExposedStringsProvider, Metadata  = pageinfo });
+                return View(new CommonComponentModel { PubliclyExposedStringsProvider = this.PubliclyExposedStringsProvider, Metadata = pageinfo });
+
+
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex, "Something went wrong when accesing the site from Index");
+                return this.RedirectPermanent("https://www.cascadianaerialrobotics.com");
+            }
+
+            
         }
 
         [Route("Privacy")]
         public IActionResult Privacy()
         {
+            // If configured to redirect to static (most likely prod)
+            if (ShouldRedirectToStaticPage)
+            {
+                Task.Run(() => Logger.LogWarning(new EventId(1, "Request for non-root received." + this.HttpContext.Request.Path.Value), "Request for root received."));
+                return this.RedirectPermanent("https://www.cascadianaerialrobotics.com");
+            }
+
             var pageinfo = new PageMetadataModel
             {
                 Page = "Privacy | Cascadian Aerial Robotics LLC",
@@ -45,6 +75,13 @@ namespace CascadianAerialRobotics.Website.Controllers
         [Route("Newsletter")]
         public IActionResult Newsletter()
         {
+            // If configured to redirect to static (most likely prod)
+            if (ShouldRedirectToStaticPage)
+            {
+                Task.Run(() => Logger.LogWarning(new EventId(1, "Request for non-root received." + this.HttpContext.Request.Path.Value), "Request for root received."));
+                return this.RedirectPermanent("https://www.cascadianaerialrobotics.com");
+            }
+
             var pageinfo = new PageMetadataModel
             {
                 Page = "Feathered flight: The Cascadian Aerial Robotics newsletter",
@@ -57,6 +94,13 @@ namespace CascadianAerialRobotics.Website.Controllers
         [Route("Bookings")]
         public IActionResult Bookings()
         {
+            // If configured to redirect to static (most likely prod)
+            if (ShouldRedirectToStaticPage)
+            {
+                Task.Run(() => Logger.LogWarning(new EventId(1, "Request for non-root received." + this.HttpContext.Request.Path.Value), "Request for root received."));
+                return this.RedirectPermanent("https://www.cascadianaerialrobotics.com");
+            }
+
             var pageinfo = new PageMetadataModel
             {
                 Page = "Bookings | Cascadian Aerial Robotics LLC",
@@ -69,6 +113,13 @@ namespace CascadianAerialRobotics.Website.Controllers
         [Route("FAQ")]
         public IActionResult Faq()
         {
+            // If configured to redirect to static (most likely prod)
+            if (ShouldRedirectToStaticPage)
+            {
+                Task.Run(() => Logger.LogWarning(new EventId(1, "Request for non-root received." + this.HttpContext.Request.Path.Value), "Request for root received."));
+                return this.RedirectPermanent("https://www.cascadianaerialrobotics.com");
+            }
+
             var pageinfo = new PageMetadataModel
             {
                 Page = "Frequently asked questions | Cascadian Aerial Robotics LLC",

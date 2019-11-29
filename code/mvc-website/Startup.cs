@@ -1,15 +1,18 @@
 ﻿
+using System;
 using System.IO;
+using System.Threading.Tasks;
 using CascadianAerialRobotics.Website.DependencyProfiles.DevelopmentLocal;
 using CascadianAerialRobotics.Website.DependencyProfiles.Production;
+using Microsoft.ApplicationInsights;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.ApplicationInsights;
 
@@ -153,15 +156,43 @@ namespace mvc_website
         {
             app.UseHttpsRedirection();
             app.UseCookiePolicy();
-            app.UseDefaultFiles();
-            app.UseStaticFiles();
+            //app.UseDefaultFiles();
+            //app.UseStaticFiles();
 
-            app.UseExceptionHandler("/Home/Error");
+            app.UseExceptionHandler(errorApp =>
+            {
+                errorApp.Run(async context =>
+                {
+                    try
+                    {
+                        
+                        Task.Run(() =>
+                        {
+                            var exceptionHandlerPathFeature = context.Features.Get<IExceptionHandlerPathFeature>();
+
+                            var logger = new ApplicationInsightsLogger("main-webpage", new TelemetryClient(), new ApplicationInsightsLoggerOptions() { IncludeScopes = false });
+                                Log500(exceptionHandlerPathFeature.Error);
+                         });
+
+                        
+                    }
+                    finally
+                    {
+                        context.Response.Redirect("https://www.cascadianaerialrobotics.com");
+                    }
+
+                    
+                });
+            });
+
+
 
             app.UseStatusCodePages(async context =>
             {
                 if (context.HttpContext.Response.StatusCode == StatusCodes.Status404NotFound)
                 {
+                    Task.Run(() => Log404());
+
                     //  TODO: Issue #10 : What a fugly solution, I know, but I need to do this for the release, I'll attach the razor renderer.
                     await context.HttpContext.Response.WriteAsync(Http404Text);
                 }
@@ -174,6 +205,19 @@ namespace mvc_website
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+        }
+
+        private static void Log404()
+        {
+            var logger = new ApplicationInsightsLogger("main-webpage", new TelemetryClient(), new ApplicationInsightsLoggerOptions() { IncludeScopes = false });
+            logger.LogWarning(new EventId(2, "Request hit a 404"), "Request hit a 404");
+        }
+
+        private static void Log500(Exception ex)
+        {
+            var logger = new ApplicationInsightsLogger("main-webpage", new TelemetryClient(), new ApplicationInsightsLoggerOptions() { IncludeScopes = false });
+            logger.LogError(ex, "Error in the application");
+
         }
         #endregion
 
