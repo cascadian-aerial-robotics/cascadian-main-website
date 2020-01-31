@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="RIDER_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$USER_HOME$/.nuget/packages/microsoft.net.test.sdk/16.0.1/build/netcoreapp1.0" />
+    <content url="file://$USER_HOME$/.nuget/packages/mstest.testadapter/1.4.0/build/_common/Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll" />
+    <content url="file://$USER_HOME$/.nuget/packages/mstest.testadapter/1.4.0/build/_common/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll" />
+    <content url="file://$USER_HOME$/.nuget/packages/mstest.testadapter/1.4.0/build/netcoreapp1.0/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll" />
+    <content url="file://$MODULE_DIR$/../../../code/cascadian-abstractions" />
+    <content url="file://$MODULE_DIR$/../../../code/cascadian-entities" />
+    <content url="file://$MODULE_DIR$/../../../code/cascadian-sqlrepositories" />
+    <content url="file://$MODULE_DIR$/../../../code/cascadian-website-abstractions" />
+    <content url="file://$MODULE_DIR$/../../../code/cascadian-website-services" />
+    <content url="file://$MODULE_DIR$/../../../code/dependencyprofile-developmentlocal" />
+    <content url="file://$MODULE_DIR$/../../../code/dependencyprofile-production" />
+    <content url="file://$MODULE_DIR$/../../../code/message-function-app" />
+    <content url="file://$MODULE_DIR$/../../../code/mvc-website" />
+    <content url="file://$MODULE_DIR$/../.." />
+    <content url="file://$MODULE_DIR$/../../../submodules/grump/src/grump.abstractions" />
+    <content url="file://$MODULE_DIR$/../../../submodules/grump/src/grump.azure" />
+    <content url="file://$MODULE_DIR$/../../../submodules/grump/src/grump.core" />
+    <content url="file://$MODULE_DIR$/../../../submodules/grump/src/grump.data" />
+    <content url="file://$MODULE_DIR$/../../../submodules/grump/src/grump.semantics" />
+    <content url="file://$MODULE_DIR$/../../../submodules/grump/src/grump.sql" />
+    <content url="file://$MODULE_DIR$/../../../submodules/grump/src/grump.testhelpers" />
+    <content url="file://$MODULE_DIR$/../../../tests/mvc-website.tests.unit" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\code\cascadian-main-website\code\cascadian-abstractions" t="IncludeRecursive">
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="cascadian-abstractions.csproj" t="IncludeRecursive" />
+      <e p="IContactInfoRepository.cs" t="Include" />
+      <e p="IContactMessageRepository.cs" t="Include" />
+      <e p="IPersonRepository.cs" t="Include" />
+      <e p="IRepository.cs" t="Include" />
+      <e p="IViewModelSettingsProvider.cs" t="Include" />
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="netstandard2.0" t="Include">
+            <e p="cascadian-abstractions.AssemblyInfo.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+    </e>
+    <e p="C:\code\cascadian-main-website\code\cascadian-entities" t="IncludeRecursive">
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="cascadian-entities.csproj" t="IncludeRecursive" />
+      <e p="ContactInfo.cs" t="Include" />
+      <e p="ContactMessage.cs" t="Include" />
+      <e p="ContactType.cs" t="Include" />
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="netstandard2.0" t="Include">
+            <e p="cascadian-entities.AssemblyInfo.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="Person.cs" t="Include" />
+    </e>
+    <e p="C:\code\cascadian-main-website\code\cascadian-sqlrepositories" t="IncludeRecursive">
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="cascadian-sqlrepositories.csproj" t="IncludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="SqlContactInfoRepository.cs" t="Include" />
+      <e p="SqlContactMessageRepository.cs" t="Include" />
+      <e p="SqlPersonRepository.cs" t="Include" />
+    </e>
+    <e p="C:\code\cascadian-main-website\code\cascadian-website-abstractions" t="IncludeRecursive">
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="cascadian-website-abstractions.csproj" t="IncludeRecursive" />
+      <e p="ContactMessage.cs" t="Include" />
+      <e p="IContactMessageLogger.cs" t="Include" />
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="netstandard2.0" t="Include">
+            <e p="cascadian-website-abstractions.AssemblyInfo.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+    </e>
+    <e p="C:\code\cascadian-main-website\code\cascadian-website-services" t="IncludeRecursive">
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="cascadian-website-services.csproj" t="IncludeRecursive" />
+      <e p="ConfigViewModelSettingsProvider.cs" t="Include" />
+      <e p="ContactMessageLogger.cs" t="Include" />
+      <e p="obj" t="ExcludeRecursive" />
+    </e>
+    <e p="C:\code\cascadian-main-website\code\dependencyprofile-developmentlocal" t="IncludeRecursive">
+      <e p="dependencyprofile-developmentlocal.csproj" t="IncludeRecursive" />
+    </e>
+    <e p="C:\code\cascadian-main-website\code\dependencyprofile-production" t="IncludeRecursive">
+      <e p="dependencyprofile-production.csproj" t="IncludeRecursive" />
+    </e>
+    <e p="C:\code\cascadian-main-website\code\message-function-app" t="IncludeRecursive">
+      <e p=".gitignore" t="Include" />
+      <e p="azure.settings.json" t="Include" />
+      <e p="bin\Debug\netcoreapp2.1\bin" t="ExcludeRecursive" />
+      <e p="function.json" t="Include" />
+      <e p="host.json" t="Include" />
+      <e p="message-function-app.csproj" t="IncludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="SendMessageFunction.cs" t="Include" />
+    </e>
+    <e p="C:\code\cascadian-main-website\code\mvc-website" t="IncludeRecursive">
+      <e p="appsettings.json" t="Include" />
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="CascadianControllerBase.cs" t="Include" />
+      <e p="CascadianViewComponentBase.cs" t="Include" />
+      <e p="Controllers" t="Include">
+        <e p="HomeController.cs" t="Include" />
+      </e>
+      <e p="FallbackImgTagHelper.cs" t="Include" />
+      <e p="Models" t="Include">
+        <e p="CommonComponentModel.cs" t="Include" />
+        <e p="ErrorViewModel.cs" t="Include" />
+        <e p="PageMetadataModel.cs" t="Include" />
+      </e>
+      <e p="mvc-website.csproj" t="IncludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Program.cs" t="Include" />
+      <e p="Startup.cs" t="Include" />
+      <e p="Views" t="Include">
+        <e p="_ViewImports.cshtml" t="Include" />
+        <e p="_ViewStart.cshtml" t="Include" />
+        <e p="Home" t="Include">
+          <e p="Bookings.cshtml" t="Include" />
+          <e p="Faq.cshtml" t="Include" />
+          <e p="Index.cshtml" t="Include" />
+          <e p="Newsletter.cshtml" t="Include" />
+          <e p="Privacy.cshtml" t="Include" />
+        </e>
+        <e p="Shared" t="Include">
+          <e p="_CookieConsentPartial.cshtml" t="Include" />
+          <e p="_Layout.cshtml" t="Include" />
+          <e p="_ValidationScriptsPartial.cshtml" t="Include" />
+          <e p="Components" t="Include">
+            <e p="CitiesServedStrip" t="Include">
+              <e p="CitiesServedStripViewComponent.cs" t="Include" />
+              <e p="Default.cshtml" t="Include" />
+            </e>
+            <e p="Footer" t="Include">
+              <e p="Default.cshtml" t="Include" />
+              <e p="FooterViewComponent.cs" t="Include" />
+            </e>
+            <e p="GetInTouch" t="Include">
+              <e p="Default.cshtml" t="Include" />
+              <e p="GetInTouchViewComponent.cs" t="Include" />
+            </e>
+            <e p="Guarantee" t="Include">
+              <e p="Default.cshtml" t="Include" />
+              <e p="GuaranteeViewComponent.cs" t="Include" />
+            </e>
+            <e p="Header" t="Include">
+              <e p="Default.cshtml" t="Include" />
+              <e p="HeaderViewComponent.cs" t="Include" />
+            </e>
+            <e p="Industries" t="Include">
+              <e p="Default.cshtml" t="Include" />
+              <e p="IndustriesViewComponent.cs" t="Include" />
+            </e>
+            <e p="JumbotronWithSlider" t="Include">
+              <e p="Default.cshtml" t="Include" />
+              <e p="JumbotronWithSliderViewComponent.cs" t="Include" />
+            </e>
+            <e p="JumbotronWithVideo" t="Include">
+              <e p="Default.cshtml" t="Include" />
+              <e p="JumbotronWithVideoViewComponent.cs" t="Include" />
+            </e>
+            <e p="Portfolio" t="Include">
+              <e p="Default.cshtml" t="Include" />
+              <e p="PortfolioViewComponent.cs" t="Include" />
+            </e>
+            <e p="Services" t="Include">
+              <e p="Default.cshtml" t="Include" />
+              <e p="ServicesViewComponent.cs" t="Include" />
+            </e>
+            <e p="WantToStartProject" t="Include">
+              <e p="Default.cshtml" t="Include" />
+              <e p="WantToStartProjectViewComponent.cs" t="Include" />
+            </e>
+            <e p="WhatWeDo" t="Include">
+              <e p="Default.cshtml" t="Include" />
+              <e p="WhatWeDoViewComponent.cs" t="Include" />
+            </e>
+            <e p="WhyChooseUs" t="Include">
+              <e p="Default.cshtml" t="Include" />
+              <e p="WhyChooseUsViewComponent.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Error.cshtml" t="Include" />
+        </e>
+        <e p="Templates" t="Include">
+          <e p="FullPageFrameTemplate.cshtml" t="Include" />
+          <e p="FullPageWithLayout.cshtml" t="Include" />
+        </e>
+      </e>
+      <e p="wwwroot" t="Include" />
+    </e>
+    <e p="C:\code\cascadian-main-website\solution files" t="IncludeFlat">
+      <e p="businessservices" t="Include" />
+      <e p="dependencyprofiles" t="Include" />
+      <e p="mainwebsite-withtests.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="submodules" t="Include">
+        <e p="grump" t="Include" />
+      </e>
+      <e p="tests" t="Include" />
+    </e>
+    <e p="C:\code\cascadian-main-website\submodules\grump\src\grump.abstractions" t="IncludeRecursive">
+      <e p="grump.abstractions.csproj" t="IncludeRecursive" />
+    </e>
+    <e p="C:\code\cascadian-main-website\submodules\grump\src\grump.azure" t="IncludeRecursive">
+      <e p="grump.azure.csproj" t="IncludeRecursive" />
+    </e>
+    <e p="C:\code\cascadian-main-website\submodules\grump\src\grump.core" t="IncludeRecursive">
+      <e p="grump.core.csproj" t="IncludeRecursive" />
+    </e>
+    <e p="C:\code\cascadian-main-website\submodules\grump\src\grump.data" t="IncludeRecursive">
+      <e p="grump.data.csproj" t="IncludeRecursive" />
+    </e>
+    <e p="C:\code\cascadian-main-website\submodules\grump\src\grump.semantics" t="IncludeRecursive">
+      <e p="grump.semantics.csproj" t="IncludeRecursive" />
+    </e>
+    <e p="C:\code\cascadian-main-website\submodules\grump\src\grump.sql" t="IncludeRecursive">
+      <e p="grump.sql.csproj" t="IncludeRecursive" />
+    </e>
+    <e p="C:\code\cascadian-main-website\submodules\grump\src\grump.testhelpers" t="IncludeRecursive">
+      <e p="grump.testhelpers.csproj" t="IncludeRecursive" />
+    </e>
+    <e p="C:\code\cascadian-main-website\tests\mvc-website.tests.unit" t="IncludeRecursive">
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="mvc-website.tests.unit.csproj" t="IncludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+    </e>
+    <e p="C:\Users\Adrian\.nuget\packages\microsoft.net.test.sdk\16.0.1\build\netcoreapp1.0" t="Include">
+      <e p="Microsoft.NET.Test.Sdk.Program.cs" t="Include" />
+    </e>
+    <e p="C:\Users\Adrian\.nuget\packages\mstest.testadapter\1.4.0\build\_common\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll" t="Include" />
+    <e p="C:\Users\Adrian\.nuget\packages\mstest.testadapter\1.4.0\build\_common\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll" t="Include" />
+    <e p="C:\Users\Adrian\.nuget\packages\mstest.testadapter\1.4.0\build\netcoreapp1.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll" t="Include" />
+    <e p="C:\Users\Adrian\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Adrian\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_mainwebsite-withtests.-459730885.00" t="ExcludeRecursive" />
+  </component>
+</project>
