@@ -1,1 +1,0 @@
-<h1>This is where the git submodules are created</h1>
